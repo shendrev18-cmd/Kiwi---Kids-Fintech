@@ -26,7 +26,7 @@ struct SaveView: View {
                     )
                 }
 
-                Section("Savings Goals") {
+                Section {
                     ForEach(0..<3) { index in
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
@@ -45,6 +45,9 @@ struct SaveView: View {
                         }
                         .padding(.vertical, 4)
                     }
+                } header: {
+                    Text("Savings Goals")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
             }
             .navigationTitle("Save")

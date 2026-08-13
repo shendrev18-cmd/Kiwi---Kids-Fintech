@@ -4,7 +4,7 @@ struct ActivityView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("This Week") {
+                Section {
                     ForEach(0..<6) { index in
                         HStack {
                             RoundedRectangle(cornerRadius: 10)
@@ -32,9 +32,12 @@ struct ActivityView: View {
                         }
                         .padding(.vertical, 4)
                     }
+                } header: {
+                    Text("This Week")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
 
-                Section("Last Week") {
+                Section {
                     ForEach(0..<5) { index in
                         HStack {
                             RoundedRectangle(cornerRadius: 10)
@@ -61,6 +64,9 @@ struct ActivityView: View {
                         }
                         .padding(.vertical, 4)
                     }
+                } header: {
+                    Text("Last Week")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
             }
             .navigationTitle("Activity")

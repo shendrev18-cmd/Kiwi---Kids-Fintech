@@ -26,7 +26,7 @@ struct EarnView: View {
                     )
                 }
 
-                Section("Available Chores") {
+                Section {
                     ForEach(0..<6) { index in
                         HStack {
                             Image(systemName: ["trash", "leaf", "cup.and.saucer", "dog", "bed.double", "book"][index])
@@ -50,6 +50,9 @@ struct EarnView: View {
                         }
                         .padding(.vertical, 4)
                     }
+                } header: {
+                    Text("Available Chores")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
             }
             .navigationTitle("Earn")

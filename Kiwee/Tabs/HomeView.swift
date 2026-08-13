@@ -28,7 +28,7 @@ struct HomeView: View {
                 }
 
                 // Recent activity
-                Section("Recent") {
+                Section {
                     ForEach(0..<8) { index in
                         HStack {
                             Circle()
@@ -56,6 +56,9 @@ struct HomeView: View {
                         }
                         .padding(.vertical, 4)
                     }
+                } header: {
+                    Text("Recent")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
             }
             .navigationTitle("Home")

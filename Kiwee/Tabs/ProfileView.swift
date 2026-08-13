@@ -32,17 +32,30 @@ struct ProfileView: View {
                     .padding(.vertical, 8)
                 }
 
-                Section("Account") {
+                Section {
                     Label("Notifications", systemImage: "bell")
+                        .font(.figtree(.body))
                     Label("Privacy", systemImage: "lock")
+                        .font(.figtree(.body))
                     Label("Appearance", systemImage: "paintbrush")
+                        .font(.figtree(.body))
                     Label("Family", systemImage: "person.2")
+                        .font(.figtree(.body))
+                } header: {
+                    Text("Account")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
 
-                Section("Support") {
+                Section {
                     Label("Help Center", systemImage: "questionmark.circle")
+                        .font(.figtree(.body))
                     Label("Send Feedback", systemImage: "envelope")
+                        .font(.figtree(.body))
                     Label("About Kiwee", systemImage: "info.circle")
+                        .font(.figtree(.body))
+                } header: {
+                    Text("Support")
+                        .font(.figtree(.caption, weight: .semibold))
                 }
             }
             .navigationTitle("Profile")
