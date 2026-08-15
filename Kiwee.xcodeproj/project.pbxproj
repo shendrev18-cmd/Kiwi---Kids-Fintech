@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00F70C52F9207CF6F04DD3CA /* Lexend[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0508A65F97B68F200C348D0F /* Lexend[wght].ttf */; };
+		0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4084A72883B08D8E86318 /* ProfileView.swift */; };
+		11D8483235961405C8EFA76B /* EarnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D44F586052816F6148F9C1 /* EarnView.swift */; };
+		18C6EA6E9EB4D6EA6E5CD502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */; };
+		3B7F79C394087DE7D293D2D7 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4CDF06173E4662EB8C01E /* OnboardingStep.swift */; };
+		3E14E07428DBA07B2C82B20E /* KiweeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */; };
+		58F83E073B9715A0437ECBC5 /* KiweeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A313807064C35DE152E094B /* KiweeColors.swift */; };
+		662687618635FB1AFC149D73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EA35145479D910A75A456 /* ContentView.swift */; };
+		682C9E0B3F6ED60C3ED4E14B /* KiweeGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EDDDBF292B95553934462 /* KiweeGradient.swift */; };
+		6ACE34AD4250B79A0B901C10 /* KiweeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03877645A757447EDDEEAE5 /* KiweeTheme.swift */; };
+		78941F5A3FE1DDDBCC1C0402 /* Figtree[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8343928E273D417E21760DF1 /* Figtree[wght].ttf */; };
+		8B2746BABB30C02DF942DA4F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2152D5D9D7FF44FADE08C /* OnboardingViewModel.swift */; };
+		8F0929B22861861B64873771 /* KiweeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A2A8FBDF1674F91179959 /* KiweeFonts.swift */; };
+		967123C74CFBD3A0A3B929E5 /* KiweeTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */; };
+		A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8890C74025F33B98D08 /* HomeView.swift */; };
+		AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA2D8450E54767692F7A0 /* SaveView.swift */; };
+		B74C7E51599838689FAB03CD /* KiweeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */; };
+		B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087EA93A3790749AC0CFD89 /* KiweeApp.swift */; };
+		BF8A36C1766140D5CFEE8868 /* KiweeContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */; };
+		C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */; };
+		D266EC89EF2CAE8D9F4F6A6A /* KiweeGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */; };
+		D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07481386C7B381E4737E8F /* ActivityView.swift */; };
+		E19D030466FC605FB3EFF70B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB0B72FB65E72DD12CA85 /* OnboardingView.swift */; };
+		F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FEEEE209997119BB8FC88C /* KiweeTab.swift */; };
+		FC3C5A2524869B0AB4F7EADC /* Inter[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28C012858A071F587C1B073B /* Inter[wght].ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0508A65F97B68F200C348D0F /* Lexend[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend[wght].ttf"; sourceTree = "<group>"; };
+		0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeButtonStyle.swift; sourceTree = "<group>"; };
+		183BA2D8450E54767692F7A0 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+		28C012858A071F587C1B073B /* Inter[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter[wght].ttf"; sourceTree = "<group>"; };
+		349A2A8FBDF1674F91179959 /* KiweeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeFonts.swift; sourceTree = "<group>"; };
+		3A313807064C35DE152E094B /* KiweeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeColors.swift; sourceTree = "<group>"; };
+		3EF4CDF06173E4662EB8C01E /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
+		43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeAvatar.swift; sourceTree = "<group>"; };
+		51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGlow.swift; sourceTree = "<group>"; };
+		5925E8890C74025F33B98D08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		64FEEEE209997119BB8FC88C /* KiweeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTab.swift; sourceTree = "<group>"; };
+		6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeContrast.swift; sourceTree = "<group>"; };
+		6EA2152D5D9D7FF44FADE08C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		6F07481386C7B381E4737E8F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		7F2EDDDBF292B95553934462 /* KiweeGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGradient.swift; sourceTree = "<group>"; };
+		8087EA93A3790749AC0CFD89 /* KiweeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeApp.swift; sourceTree = "<group>"; };
+		8343928E273D417E21760DF1 /* Figtree[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree[wght].ttf"; sourceTree = "<group>"; };
+		8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTypography.swift; sourceTree = "<group>"; };
+		A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGlassTabBar.swift; sourceTree = "<group>"; };
+		A86628276B91492C682097E0 /* Kiwee.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kiwee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2EA35145479D910A75A456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7A318E670982E66B46FCC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C8D44F586052816F6148F9C1 /* EarnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnView.swift; sourceTree = "<group>"; };
+		F03877645A757447EDDEEAE5 /* KiweeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTheme.swift; sourceTree = "<group>"; };
+		F9A4084A72883B08D8E86318 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FD3BB0B72FB65E72DD12CA85 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		026A311552004E0D2A45EF8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A86628276B91492C682097E0 /* Kiwee.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A9D1DB352867587DE359107 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */,
+				10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */,
+				3A313807064C35DE152E094B /* KiweeColors.swift */,
+				6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */,
+				51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */,
+				7F2EDDDBF292B95553934462 /* KiweeGradient.swift */,
+				F03877645A757447EDDEEAE5 /* KiweeTheme.swift */,
+				8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		52799AB7BFB155128CD8BAAD /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		644E19B8AC9056C6A704AC71 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3EF4CDF06173E4662EB8C01E /* OnboardingStep.swift */,
+				FD3BB0B72FB65E72DD12CA85 /* OnboardingView.swift */,
+				6EA2152D5D9D7FF44FADE08C /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6F5F1FC3C27F4B00A3AADABD = {
+			isa = PBXGroup;
+			children = (
+				E75178F2888CCB1E57FB0857 /* Kiwee */,
+				026A311552004E0D2A45EF8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1E8E0BAB1B86BFA02212B3E /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				6F07481386C7B381E4737E8F /* ActivityView.swift */,
+				C8D44F586052816F6148F9C1 /* EarnView.swift */,
+				5925E8890C74025F33B98D08 /* HomeView.swift */,
+				F9A4084A72883B08D8E86318 /* ProfileView.swift */,
+				183BA2D8450E54767692F7A0 /* SaveView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		DF1014CFBA8AE5768067020C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8343928E273D417E21760DF1 /* Figtree[wght].ttf */,
+				28C012858A071F587C1B073B /* Inter[wght].ttf */,
+				349A2A8FBDF1674F91179959 /* KiweeFonts.swift */,
+				0508A65F97B68F200C348D0F /* Lexend[wght].ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E1A7266AC037CE52F44D0C35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64FEEEE209997119BB8FC88C /* KiweeTab.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E75178F2888CCB1E57FB0857 /* Kiwee */ = {
+			isa = PBXGroup;
+			children = (
+				0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */,
+				AF2EA35145479D910A75A456 /* ContentView.swift */,
+				C7A318E670982E66B46FCC4C /* Info.plist */,
+				8087EA93A3790749AC0CFD89 /* KiweeApp.swift */,
+				DF1014CFBA8AE5768067020C /* Fonts */,
+				E1A7266AC037CE52F44D0C35 /* Models */,
+				52799AB7BFB155128CD8BAAD /* Navigation */,
+				644E19B8AC9056C6A704AC71 /* Onboarding */,
+				C1E8E0BAB1B86BFA02212B3E /* Tabs */,
+				4A9D1DB352867587DE359107 /* Theme */,
+			);
+			path = Kiwee;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		729488081831EB2346D84C33 /* Kiwee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DFB51FF6BC46786233EB02F /* Build configuration list for PBXNativeTarget "Kiwee" */;
+			buildPhases = (
+				3D8FBD6A76A1920A47084EBD /* Sources */,
+				12FD4D1123BA2EFCFEA400EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kiwee;
+			packageProductDependencies = (
+			);
+			productName = Kiwee;
+			productReference = A86628276B91492C682097E0 /* Kiwee.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5F0CDE6A164D5458DB4FB7E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = B70BAACDF76F18EB5EFE49DB /* Build configuration list for PBXProject "Kiwee" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6F5F1FC3C27F4B00A3AADABD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 026A311552004E0D2A45EF8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				729488081831EB2346D84C33 /* Kiwee */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12FD4D1123BA2EFCFEA400EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18C6EA6E9EB4D6EA6E5CD502 /* Assets.xcassets in Resources */,
+				78941F5A3FE1DDDBCC1C0402 /* Figtree[wght].ttf in Resources */,
+				FC3C5A2524869B0AB4F7EADC /* Inter[wght].ttf in Resources */,
+				00F70C52F9207CF6F04DD3CA /* Lexend[wght].ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D8FBD6A76A1920A47084EBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */,
+				662687618635FB1AFC149D73 /* ContentView.swift in Sources */,
+				11D8483235961405C8EFA76B /* EarnView.swift in Sources */,
+				A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */,
+				B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */,
+				3E14E07428DBA07B2C82B20E /* KiweeAvatar.swift in Sources */,
+				B74C7E51599838689FAB03CD /* KiweeButtonStyle.swift in Sources */,
+				58F83E073B9715A0437ECBC5 /* KiweeColors.swift in Sources */,
+				BF8A36C1766140D5CFEE8868 /* KiweeContrast.swift in Sources */,
+				8F0929B22861861B64873771 /* KiweeFonts.swift in Sources */,
+				C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */,
+				D266EC89EF2CAE8D9F4F6A6A /* KiweeGlow.swift in Sources */,
+				682C9E0B3F6ED60C3ED4E14B /* KiweeGradient.swift in Sources */,
+				F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */,
+				6ACE34AD4250B79A0B901C10 /* KiweeTheme.swift in Sources */,
+				967123C74CFBD3A0A3B929E5 /* KiweeTypography.swift in Sources */,
+				3B7F79C394087DE7D293D2D7 /* OnboardingStep.swift in Sources */,
+				E19D030466FC605FB3EFF70B /* OnboardingView.swift in Sources */,
+				8B2746BABB30C02DF942DA4F /* OnboardingViewModel.swift in Sources */,
+				0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */,
+				AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		43B07BA36A5EDA996F539449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		51970204BC0A7B89B6AAFBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Kiwee/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwee.app;
+				PRODUCT_NAME = Kiwee;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		51D6C35FA8CB15C3D8088F4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FD1BE9BD120006A62E0E42C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Kiwee/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwee.app;
+				PRODUCT_NAME = Kiwee;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DFB51FF6BC46786233EB02F /* Build configuration list for PBXNativeTarget "Kiwee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1BE9BD120006A62E0E42C4 /* Debug */,
+				51970204BC0A7B89B6AAFBCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B70BAACDF76F18EB5EFE49DB /* Build configuration list for PBXProject "Kiwee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51D6C35FA8CB15C3D8088F4F /* Debug */,
+				43B07BA36A5EDA996F539449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5F0CDE6A164D5458DB4FB7E /* Project object */;
+}
