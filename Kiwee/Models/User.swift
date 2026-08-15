@@ -155,6 +155,59 @@ final class User {
         Color(hex: accentColorHex) ?? .kiweeGreen
     }
 
+    // MARK: Persistence
+
+    private static let defaults = UserDefaults.standard
+    private enum Key {
+        static let name = "kiwee_user_name"
+        static let avatarInitials = "kiwee_user_initials"
+        static let avatarEmoji = "kiwee_user_emoji"
+        static let accentColorHex = "kiwee_user_accent"
+        static let accountType = "kiwee_user_accountType"
+        static let gradientColor1 = "kiwee_user_grad1"
+        static let gradientColor2 = "kiwee_user_grad2"
+    }
+
+    /// Save essential profile fields to UserDefaults.
+    func save() {
+        Self.defaults.set(name, forKey: Key.name)
+        Self.defaults.set(avatarInitials, forKey: Key.avatarInitials)
+        Self.defaults.set(avatarEmoji, forKey: Key.avatarEmoji)
+        Self.defaults.set(accentColorHex, forKey: Key.accentColorHex)
+        Self.defaults.set(accountType.rawValue, forKey: Key.accountType)
+        if avatarGradientColors.count >= 2 {
+            Self.defaults.set(avatarGradientColors[0].hexString, forKey: Key.gradientColor1)
+            Self.defaults.set(avatarGradientColors[1].hexString, forKey: Key.gradientColor2)
+        }
+    }
+
+    /// Load a saved user from UserDefaults, or return `sample` if nothing is saved.
+    @MainActor
+    static func loadOrSample() -> User {
+        guard let name = defaults.string(forKey: Key.name), !name.isEmpty else {
+            return sample
+        }
+        let grad1 = Color(hex: defaults.string(forKey: Key.gradientColor1) ?? "") ?? .blue
+        let grad2 = Color(hex: defaults.string(forKey: Key.gradientColor2) ?? "") ?? .cyan
+        return User(
+            name: name,
+            avatarInitials: defaults.string(forKey: Key.avatarInitials) ?? "KK",
+            avatarGradientColors: [grad1, grad2],
+            accountType: AccountType(rawValue: defaults.string(forKey: Key.accountType) ?? "kid") ?? .kid,
+            memberSince: Date(),
+            xp: 0,
+            balance: 0,
+            totalEarned: 0,
+            totalSaved: 0,
+            choresCompleted: 0,
+            notificationsEnabled: true,
+            choreRemindersEnabled: true,
+            savingsAlertsEnabled: true,
+            avatarEmoji: defaults.string(forKey: Key.avatarEmoji) ?? "🚀",
+            accentColorHex: defaults.string(forKey: Key.accentColorHex) ?? "#29C76A"
+        )
+    }
+
     // MARK: Mock / sample data
 
     @MainActor

@@ -5,15 +5,16 @@ import SwiftUI
 /// The main Home screen. Uses a free-form ScrollView + VStack backbone
 /// so each section can control its own layout, horizontal scroll, and edge bleed.
 struct HomeView: View {
+    @Environment(User.self) private var user
     @State private var viewModel = HomeViewModel()
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: KiweeTheme.Spacing.sectionGap) {
-                    HomeHeaderView(user: viewModel.user)
+                    HomeHeaderView(user: user)
 
-                    BalanceHeroCard(user: viewModel.user)
+                    BalanceHeroCard(user: user)
 
                     QuickActionsRow()
 
@@ -37,5 +38,6 @@ struct HomeView: View {
 
 #Preview("Home") {
     HomeView()
+        .environment(User.sample)
         .preferredColorScheme(.dark)
 }

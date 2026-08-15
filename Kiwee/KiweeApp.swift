@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct KiweeApp: App {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
-    @State private var user = User.sample
+    @State private var user = User.loadOrSample()
 
     init() {
         KiweeApp.configureAppearance()
@@ -19,6 +19,7 @@ struct KiweeApp: App {
                 } else {
                     OnboardingContainerView { newUser in
                         user = newUser
+                        newUser.save()
                         withAnimation(.easeInOut(duration: 0.5)) {
                             hasCompletedOnboarding = true
                         }

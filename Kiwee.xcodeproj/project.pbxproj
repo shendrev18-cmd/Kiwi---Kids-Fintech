@@ -28,7 +28,6 @@
 		83220DE0D4D5C93176503608 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72444612F579D3CF31E5E90 /* OnboardingContainerView.swift */; };
 		8B2746BABB30C02DF942DA4F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2152D5D9D7FF44FADE08C /* OnboardingViewModel.swift */; };
 		8F0929B22861861B64873771 /* KiweeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A2A8FBDF1674F91179959 /* KiweeFonts.swift */; };
-		98AABB8369D84692E3CB9950 /* OnboardingProgressDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCB1E874654A3DB1289C32 /* OnboardingProgressDots.swift */; };
 		A624155FF25ECFA208555605 /* GradientAvatarPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC3014F986BB04812A38F /* GradientAvatarPreview.swift */; };
 		A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8890C74025F33B98D08 /* HomeView.swift */; };
 		AA3A072D19CE7D5415E4A708 /* EarningOpportunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09E0077AC28880A83F53AE /* EarningOpportunityCard.swift */; };
@@ -71,7 +70,6 @@
 		3E4586B604D57E5D477B1E9D /* BalanceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeroCard.swift; sourceTree = "<group>"; };
 		3EF4CDF06173E4662EB8C01E /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
 		44505E8AAAD7B5F81724DF07 /* FirstGoalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGoalStepView.swift; sourceTree = "<group>"; };
-		49FCB1E874654A3DB1289C32 /* OnboardingProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressDots.swift; sourceTree = "<group>"; };
 		56C904E1C767EFBB6CF74B52 /* AccountTypeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTypeStepView.swift; sourceTree = "<group>"; };
 		591DB988BF6BAEF200FEDA4C /* WelcomeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeStepView.swift; sourceTree = "<group>"; };
 		5925E8890C74025F33B98D08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				1C6EA17D0013869B5224097D /* OnboardingBackground.swift */,
 				EB1B9291D494E352B3252189 /* OnboardingButton.swift */,
 				3289F0574A432F6A5528ADBC /* OnboardingProgressBar.swift */,
-				49FCB1E874654A3DB1289C32 /* OnboardingProgressDots.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -370,7 +367,6 @@
 				D524974BF3A4D33DFF6C5513 /* OnboardingButton.swift in Sources */,
 				83220DE0D4D5C93176503608 /* OnboardingContainerView.swift in Sources */,
 				F9D8A451EBAAC4E80E686B87 /* OnboardingProgressBar.swift in Sources */,
-				98AABB8369D84692E3CB9950 /* OnboardingProgressDots.swift in Sources */,
 				3B7F79C394087DE7D293D2D7 /* OnboardingStep.swift in Sources */,
 				8B2746BABB30C02DF942DA4F /* OnboardingViewModel.swift in Sources */,
 				0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */,

@@ -92,38 +92,23 @@ struct BalanceHeroCard: View {
         }
     }
 
-    // Lime-yellow circle with a cartoon-style kid silhouette
+    // User's chosen avatar — emoji on a themed gradient circle
     private var avatarCircle: some View {
         ZStack {
             Circle()
                 .fill(
                     LinearGradient(
-                        colors: [
-                            Color(red: 0.84, green: 0.96, blue: 0.28),
-                            Color(red: 0.65, green: 0.84, blue: 0.18),
-                        ],
+                        colors: user.avatarGradientColors,
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
                 .frame(width: 52, height: 52)
 
-            // Stylised kid character using layered SF Symbols
-            VStack(spacing: -6) {
-                // Head
-                Circle()
-                    .fill(Color(red: 0.93, green: 0.78, blue: 0.58))
-                    .frame(width: 22, height: 22)
-
-                // Body / shoulders
-                Image(systemName: "person.fill")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(Color(red: 0.22, green: 0.55, blue: 0.16))
-                    .offset(y: -2)
-            }
-            .clipShape(Circle().inset(by: 4))
+            Text(user.avatarEmoji)
+                .font(.system(size: 26))
         }
-        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+        .shadow(color: user.accentColor.opacity(0.4), radius: 6, x: 0, y: 3)
         .accessibilityLabel("Avatar for \(user.firstName)")
     }
 

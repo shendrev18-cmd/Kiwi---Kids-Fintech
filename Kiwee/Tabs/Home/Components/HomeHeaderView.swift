@@ -12,10 +12,10 @@ struct HomeHeaderView: View {
             // Greeting + first name
             VStack(alignment: .leading, spacing: 2) {
                 Text(greeting)
-                    .font(.subheadline)
+                    .font(.figtree(.subheadline, weight: .regular))
                     .foregroundStyle(.secondary)
                 Text(user.firstName)
-                    .font(.title2.bold())
+                    .font(.lexend(.title2, weight: .bold))
             }
 
             Spacer()
