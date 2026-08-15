@@ -93,8 +93,6 @@ struct ProfileView: View {
                         .font(.kiwee(.bodyMedium))
                     Label("Privacy", systemImage: "lock")
                         .font(.kiwee(.bodyMedium))
-                    Label("Appearance", systemImage: "paintbrush")
-                        .font(.kiwee(.bodyMedium))
                     Label("Family", systemImage: "person.2")
                         .font(.kiwee(.bodyMedium))
                 } header: {
