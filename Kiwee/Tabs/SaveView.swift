@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SaveView: View {
+    @Environment(KiweeTheme.self) private var theme
+
     var body: some View {
         NavigationStack {
             List {
@@ -8,21 +10,20 @@ struct SaveView: View {
                     VStack(spacing: 8) {
                         Image(systemName: "target")
                             .font(.system(size: 44))
-                            .foregroundStyle(.purple)
+                            .foregroundStyle(theme.personalPrimary)
+                        // Heading — Lexend (brand voice)
                         Text("3 Active Goals")
-                            .font(.lexend(.headline, weight: .semibold))
+                            .font(.kiwee(.heading3))
+                            .foregroundStyle(KiweeColor.textPrimary)
+                        // Supporting copy — Inter
                         Text("$87.50 saved so far")
-                            .font(.figtree(.subheadline))
-                            .foregroundStyle(.secondary)
+                            .font(.kiwee(.bodySmall))
+                            .foregroundStyle(KiweeColor.textSecondary)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
                     .listRowBackground(
-                        LinearGradient(
-                            colors: [.purple.opacity(0.2), .indigo.opacity(0.15)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
+                        theme.avatar.softBackgroundGradient
                     )
                 }
 
@@ -31,23 +32,27 @@ struct SaveView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 Image(systemName: ["bicycle", "headphones", "teddybear"][index])
-                                    .foregroundStyle(.purple)
+                                    .foregroundStyle(theme.personalPrimary)
+                                // Goal name — Inter 600 (information layer)
                                 Text(["New Bike", "Headphones", "Stuffed Animal"][index])
-                                    .font(.figtree(.subheadline, weight: .medium))
+                                    .font(.inter(size: 16, weight: .semibold))
+                                    .foregroundStyle(KiweeColor.textPrimary)
                                 Spacer()
+                                // Progress ratio — Inter 400 (financial metadata)
                                 Text(["$45/$120", "$32/$80", "$10.50/$25"][index])
-                                    .font(.figtree(.caption))
-                                    .foregroundStyle(.secondary)
+                                    .font(.kiwee(.transactionMeta))
+                                    .foregroundStyle(KiweeColor.textSecondary)
                             }
 
                             ProgressView(value: [0.375, 0.4, 0.42][index])
-                                .tint(.purple)
+                                .tint(theme.progressValue)
                         }
                         .padding(.vertical, 4)
                     }
                 } header: {
+                    // Section overline — Figtree
                     Text("Savings Goals")
-                        .font(.figtree(.caption, weight: .semibold))
+                        .font(.kiwee(.overline))
                 }
             }
             .navigationTitle("Save")

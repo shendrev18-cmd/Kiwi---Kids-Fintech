@@ -21,6 +21,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lexend[wght].ttf</string>
+		<string>Inter[wght].ttf</string>
 		<string>Figtree[wght].ttf</string>
 	</array>
 </dict>

@@ -29,6 +29,7 @@ targets:
       properties:
         UIAppFonts:
           - "Lexend[wght].ttf"
+          - "Inter[wght].ttf"
           - "Figtree[wght].ttf"
     settings:
       base:

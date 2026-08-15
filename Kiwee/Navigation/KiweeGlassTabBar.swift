@@ -15,6 +15,7 @@ import SwiftUI
 /// the model layer cleanly separated from the visual component.
 struct KiweeGlassTabBar: View {
     @Binding var selectedTab: KiweeTab
+    @Environment(KiweeTheme.self) private var theme
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -39,7 +40,7 @@ struct KiweeGlassTabBar: View {
             }
         }
         .tabBarMinimizeBehavior(.onScrollDown)
-        .tint(.primary)
+        .tint(theme.navActive)
     }
 }
 

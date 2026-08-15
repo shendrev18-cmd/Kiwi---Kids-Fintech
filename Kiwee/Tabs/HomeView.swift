@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(KiweeTheme.self) private var theme
+
     var body: some View {
         NavigationStack {
             List {
@@ -8,22 +10,19 @@ struct HomeView: View {
                 Section {
                     VStack(spacing: 8) {
                         Text("Your Balance")
-                            .font(.figtree(.subheadline))
-                            .foregroundStyle(.secondary)
+                            .font(.kiwee(.financialLabel))
+                            .foregroundStyle(KiweeColor.textSecondary)
                         Text("$142.50")
-                            .font(.lexend(size: 40, weight: .bold))
+                            .font(.kiwee(.balanceXL))
+                            .foregroundStyle(KiweeColor.textPrimary)
                         Text("↑ $12.00 this week")
-                            .font(.figtree(.caption))
-                            .foregroundStyle(.green)
+                            .font(.kiwee(.transactionMeta))
+                            .foregroundStyle(KiweeColor.success)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 24)
                     .listRowBackground(
-                        LinearGradient(
-                            colors: [.green.opacity(0.3), .mint.opacity(0.2)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
+                        theme.avatar.softBackgroundGradient
                     )
                 }
 
@@ -32,33 +31,38 @@ struct HomeView: View {
                     ForEach(0..<8) { index in
                         HStack {
                             Circle()
-                                .fill(Color(hue: Double(index) / 8.0, saturation: 0.5, brightness: 0.9))
+                                .fill(KiweeColor.surface3)
                                 .frame(width: 40, height: 40)
                                 .overlay {
                                     Image(systemName: ["cart", "fork.knife", "tram", "gamecontroller", "book", "gift", "music.note", "star"][index])
                                         .font(.system(size: 16))
-                                        .foregroundStyle(.white)
+                                        .foregroundStyle(index == 7 ? theme.personalPrimary : KiweeColor.textPrimary)
                                 }
 
                             VStack(alignment: .leading, spacing: 2) {
+                                // Transaction name — Inter 600 (spec §16 Level 1)
                                 Text(["Grocery Store", "Lunch", "Bus Pass", "Game", "Bookshop", "Gift", "Music", "Reward"][index])
-                                    .font(.figtree(.subheadline, weight: .medium))
+                                    .font(.inter(size: 16, weight: .semibold))
+                                    .foregroundStyle(KiweeColor.textPrimary)
+                                // Date — Inter 400 (spec §16 Level 2)
                                 Text("Today")
-                                    .font(.figtree(.caption))
-                                    .foregroundStyle(.secondary)
+                                    .font(.kiwee(.transactionMeta))
+                                    .foregroundStyle(KiweeColor.textSecondary)
                             }
 
                             Spacer()
 
+                            // Amount — Inter 600 (spec §16 Level 3)
                             Text(["-$4.50", "-$8.00", "-$2.50", "-$12.99", "-$6.75", "-$15.00", "-$1.99", "+$5.00"][index])
-                                .font(.figtree(.subheadline, weight: .semibold))
-                                .foregroundStyle(index == 7 ? .green : .primary)
+                                .font(.kiwee(.transactionAmount))
+                                .foregroundStyle(index == 7 ? KiweeColor.success : KiweeColor.textPrimary)
                         }
                         .padding(.vertical, 4)
                     }
                 } header: {
+                    // Section overline — Figtree (spec §10)
                     Text("Recent")
-                        .font(.figtree(.caption, weight: .semibold))
+                        .font(.kiwee(.overline))
                 }
             }
             .navigationTitle("Home")

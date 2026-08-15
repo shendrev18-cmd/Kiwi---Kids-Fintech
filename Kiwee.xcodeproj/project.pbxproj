@@ -11,32 +11,50 @@
 		0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4084A72883B08D8E86318 /* ProfileView.swift */; };
 		11D8483235961405C8EFA76B /* EarnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D44F586052816F6148F9C1 /* EarnView.swift */; };
 		18C6EA6E9EB4D6EA6E5CD502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */; };
+		3E14E07428DBA07B2C82B20E /* KiweeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */; };
+		58F83E073B9715A0437ECBC5 /* KiweeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A313807064C35DE152E094B /* KiweeColors.swift */; };
 		662687618635FB1AFC149D73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EA35145479D910A75A456 /* ContentView.swift */; };
+		682C9E0B3F6ED60C3ED4E14B /* KiweeGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2EDDDBF292B95553934462 /* KiweeGradient.swift */; };
+		6ACE34AD4250B79A0B901C10 /* KiweeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03877645A757447EDDEEAE5 /* KiweeTheme.swift */; };
 		78941F5A3FE1DDDBCC1C0402 /* Figtree[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8343928E273D417E21760DF1 /* Figtree[wght].ttf */; };
 		8F0929B22861861B64873771 /* KiweeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A2A8FBDF1674F91179959 /* KiweeFonts.swift */; };
+		967123C74CFBD3A0A3B929E5 /* KiweeTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */; };
 		A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8890C74025F33B98D08 /* HomeView.swift */; };
 		AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA2D8450E54767692F7A0 /* SaveView.swift */; };
+		B74C7E51599838689FAB03CD /* KiweeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */; };
 		B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087EA93A3790749AC0CFD89 /* KiweeApp.swift */; };
+		BF8A36C1766140D5CFEE8868 /* KiweeContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */; };
 		C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */; };
+		D266EC89EF2CAE8D9F4F6A6A /* KiweeGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */; };
 		D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07481386C7B381E4737E8F /* ActivityView.swift */; };
 		F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FEEEE209997119BB8FC88C /* KiweeTab.swift */; };
+		FC3C5A2524869B0AB4F7EADC /* Inter[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28C012858A071F587C1B073B /* Inter[wght].ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0508A65F97B68F200C348D0F /* Lexend[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend[wght].ttf"; sourceTree = "<group>"; };
 		0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeButtonStyle.swift; sourceTree = "<group>"; };
 		183BA2D8450E54767692F7A0 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+		28C012858A071F587C1B073B /* Inter[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter[wght].ttf"; sourceTree = "<group>"; };
 		349A2A8FBDF1674F91179959 /* KiweeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeFonts.swift; sourceTree = "<group>"; };
+		3A313807064C35DE152E094B /* KiweeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeColors.swift; sourceTree = "<group>"; };
+		43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeAvatar.swift; sourceTree = "<group>"; };
+		51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGlow.swift; sourceTree = "<group>"; };
 		5925E8890C74025F33B98D08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		64FEEEE209997119BB8FC88C /* KiweeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTab.swift; sourceTree = "<group>"; };
+		6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeContrast.swift; sourceTree = "<group>"; };
 		6F07481386C7B381E4737E8F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		7F2EDDDBF292B95553934462 /* KiweeGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGradient.swift; sourceTree = "<group>"; };
 		8087EA93A3790749AC0CFD89 /* KiweeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeApp.swift; sourceTree = "<group>"; };
 		8343928E273D417E21760DF1 /* Figtree[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree[wght].ttf"; sourceTree = "<group>"; };
+		8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTypography.swift; sourceTree = "<group>"; };
 		A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGlassTabBar.swift; sourceTree = "<group>"; };
 		A86628276B91492C682097E0 /* Kiwee.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kiwee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2EA35145479D910A75A456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C7A318E670982E66B46FCC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C8D44F586052816F6148F9C1 /* EarnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnView.swift; sourceTree = "<group>"; };
+		F03877645A757447EDDEEAE5 /* KiweeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTheme.swift; sourceTree = "<group>"; };
 		F9A4084A72883B08D8E86318 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +65,21 @@
 				A86628276B91492C682097E0 /* Kiwee.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4A9D1DB352867587DE359107 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				43C1AC6E6E422906F960C879 /* KiweeAvatar.swift */,
+				10239C75417A1666BE4F54B9 /* KiweeButtonStyle.swift */,
+				3A313807064C35DE152E094B /* KiweeColors.swift */,
+				6E18CA439287AFC8DA3FCA05 /* KiweeContrast.swift */,
+				51B323FA1793D5A6B966FC44 /* KiweeGlow.swift */,
+				7F2EDDDBF292B95553934462 /* KiweeGradient.swift */,
+				F03877645A757447EDDEEAE5 /* KiweeTheme.swift */,
+				8BAD83F83E0EA884DC440E6F /* KiweeTypography.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		52799AB7BFB155128CD8BAAD /* Navigation */ = {
@@ -81,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8343928E273D417E21760DF1 /* Figtree[wght].ttf */,
+				28C012858A071F587C1B073B /* Inter[wght].ttf */,
 				349A2A8FBDF1674F91179959 /* KiweeFonts.swift */,
 				0508A65F97B68F200C348D0F /* Lexend[wght].ttf */,
 			);
@@ -106,6 +140,7 @@
 				E1A7266AC037CE52F44D0C35 /* Models */,
 				52799AB7BFB155128CD8BAAD /* Navigation */,
 				C1E8E0BAB1B86BFA02212B3E /* Tabs */,
+				4A9D1DB352867587DE359107 /* Theme */,
 			);
 			path = Kiwee;
 			sourceTree = "<group>";
@@ -168,6 +203,7 @@
 			files = (
 				18C6EA6E9EB4D6EA6E5CD502 /* Assets.xcassets in Resources */,
 				78941F5A3FE1DDDBCC1C0402 /* Figtree[wght].ttf in Resources */,
+				FC3C5A2524869B0AB4F7EADC /* Inter[wght].ttf in Resources */,
 				00F70C52F9207CF6F04DD3CA /* Lexend[wght].ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,9 +220,17 @@
 				11D8483235961405C8EFA76B /* EarnView.swift in Sources */,
 				A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */,
 				B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */,
+				3E14E07428DBA07B2C82B20E /* KiweeAvatar.swift in Sources */,
+				B74C7E51599838689FAB03CD /* KiweeButtonStyle.swift in Sources */,
+				58F83E073B9715A0437ECBC5 /* KiweeColors.swift in Sources */,
+				BF8A36C1766140D5CFEE8868 /* KiweeContrast.swift in Sources */,
 				8F0929B22861861B64873771 /* KiweeFonts.swift in Sources */,
 				C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */,
+				D266EC89EF2CAE8D9F4F6A6A /* KiweeGlow.swift in Sources */,
+				682C9E0B3F6ED60C3ED4E14B /* KiweeGradient.swift in Sources */,
 				F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */,
+				6ACE34AD4250B79A0B901C10 /* KiweeTheme.swift in Sources */,
+				967123C74CFBD3A0A3B929E5 /* KiweeTypography.swift in Sources */,
 				0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */,
 				AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */,
 			);
