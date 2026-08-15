@@ -24,7 +24,7 @@ struct FirstGoalStepView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 8)
 
-                Text("Pick an icon and give your goal a name.")
+                Text("Pick an icon and set a target amount.")
                     .font(.figtree(.body, weight: .regular))
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -48,30 +48,7 @@ struct FirstGoalStepView: View {
 
                 Spacer().frame(height: 28)
 
-                // Goal name field
-                TextField("e.g., New skateboard", text: $viewModel.goalName)
-                    .font(.figtree(.body, weight: .medium))
-                    .textContentType(.none)
-                    .autocorrectionDisabled()
-                    .focused($isNameFieldFocused)
-                    .padding(.vertical, 14)
-                    .padding(.horizontal, 20)
-                    .background(
-                        RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
-                            .fill(Color(.secondarySystemGroupedBackground))
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
-                            .strokeBorder(
-                                isNameFieldFocused ? Color.kiweeGreen : .clear,
-                                lineWidth: 2
-                            )
-                    )
-                    .padding(.horizontal, KiweeTheme.Spacing.screenH)
-
-                Spacer().frame(height: 28)
-
-                // Amount stepper
+                // Amount stepper — primary input
                 VStack(spacing: 12) {
                     Text("Target amount")
                         .font(.figtree(.subheadline, weight: .medium))
@@ -96,6 +73,41 @@ struct FirstGoalStepView: View {
                             }
                         }
                     }
+                }
+                .padding(.horizontal, KiweeTheme.Spacing.screenH)
+
+                Spacer().frame(height: 28)
+
+                // Goal name field — optional add-on
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(spacing: 4) {
+                        Text("Goal name")
+                            .font(.figtree(.subheadline, weight: .medium))
+                            .foregroundStyle(.secondary)
+                        Text("(optional)")
+                            .font(.figtree(.caption, weight: .regular))
+                            .foregroundStyle(.tertiary)
+                    }
+                    .padding(.leading, 4)
+
+                    TextField("e.g., New skateboard", text: $viewModel.goalName)
+                        .font(.figtree(.subheadline, weight: .medium))
+                        .textContentType(.none)
+                        .autocorrectionDisabled()
+                        .focused($isNameFieldFocused)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 14)
+                                .fill(Color(.secondarySystemGroupedBackground))
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .strokeBorder(
+                                    isNameFieldFocused ? Color.kiweeGreen.opacity(0.5) : .clear,
+                                    lineWidth: 1.5
+                                )
+                        )
                 }
                 .padding(.horizontal, KiweeTheme.Spacing.screenH)
 

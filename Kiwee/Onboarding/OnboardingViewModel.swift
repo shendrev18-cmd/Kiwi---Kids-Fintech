@@ -56,10 +56,16 @@ final class OnboardingViewModel {
     var selectedGradient: AvatarGradientOption = AvatarGradientOption.presets[0]
     var selectedAccountType: AccountType = .kid
 
-    // Goal input
+    // Goal input (name is optional — falls back to icon label)
     var goalName: String = ""
     var goalTargetAmount: Double = 25.0
     var selectedGoalIcon: GoalIconOption = GoalIconOption.presets[0]
+
+    /// The display name for the goal: user-entered name, or the icon label as fallback.
+    var resolvedGoalName: String {
+        let trimmed = goalName.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? selectedGoalIcon.label : trimmed
+    }
 
     // Feature tour sub-page
     var tourPage: Int = 0
@@ -96,7 +102,7 @@ final class OnboardingViewModel {
         case .name:         !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         case .avatar:       true  // has default selection
         case .accountType:  true  // has default selection
-        case .firstGoal:    !goalName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && goalTargetAmount > 0
+        case .firstGoal:    goalTargetAmount > 0  // name is optional
         case .featureTour:  true
         case .celebration:  true
         }
