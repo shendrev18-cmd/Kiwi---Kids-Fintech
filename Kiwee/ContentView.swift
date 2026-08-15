@@ -2,18 +2,28 @@ import SwiftUI
 
 /// The root app shell.
 ///
-/// Uses the native iOS 26 `TabView` + `Tab` API so the floating Liquid
-/// Glass capsule, morphing selection pill, and minimize-on-scroll
-/// behavior are all rendered by the system — identical to first-party
-/// Apple apps.
+/// Routes to `RoleSelectView`, the kid tab bar, or the parent profile
+/// based on the current `AppSession` role.  Setting `session.role = nil`
+/// from anywhere in the hierarchy returns the user to role select.
 struct ContentView: View {
+    @Environment(AppSession.self) private var session
     @State private var selectedTab: KiweeTab = .home
 
     var body: some View {
-        KiweeGlassTabBar(selectedTab: $selectedTab)
+        switch session.role {
+        case nil:
+            RoleSelectView()
+        case .kid:
+            KiweeGlassTabBar(selectedTab: $selectedTab)
+        case .parent:
+            ParentProfileView()
+        }
     }
 }
 
 #Preview {
     ContentView()
+        .environment(AppSession())
+        .environment(User.sample)
+        .environment(ParentUser.sample)
 }
