@@ -2,14 +2,14 @@ import SwiftUI
 
 // MARK: - NameStepView
 
-/// Collects the user's display name with a large, friendly text field.
+/// Collects the user's display name — dark theme with accent highlights.
 struct NameStepView: View {
     @Bindable var viewModel: OnboardingViewModel
     @FocusState private var isFieldFocused: Bool
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height: 40)
+            Spacer().frame(height: 80)
 
             // Emoji illustration
             Text("👋")
@@ -17,20 +17,22 @@ struct NameStepView: View {
                 .padding(.bottom, 24)
 
             // Heading
-            Text("What should we call you?")
-                .font(.lexend(.title2, weight: .bold))
+            Text("What should we\ncall you?")
+                .font(.lexend(.title, weight: .bold))
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
 
             Text("This is how you'll appear in Kiwee.")
                 .font(.figtree(.body, weight: .regular))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.5))
                 .padding(.top, 8)
 
             Spacer().frame(height: 40)
 
-            // Name input
+            // Name input — dark card style
             TextField("Your name", text: $viewModel.userName)
                 .font(.lexend(.title3, weight: .medium))
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .textContentType(.givenName)
                 .autocorrectionDisabled()
@@ -38,14 +40,14 @@ struct NameStepView: View {
                 .padding(.vertical, 16)
                 .padding(.horizontal, 24)
                 .background(
-                    RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
-                        .fill(Color(.secondarySystemGroupedBackground))
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.white.opacity(0.08))
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
+                    RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(
-                            isFieldFocused ? Color.kiweeGreen : Color.clear,
-                            lineWidth: 2
+                            isFieldFocused ? viewModel.theme.accent : Color.white.opacity(0.1),
+                            lineWidth: 1.5
                         )
                 )
                 .padding(.horizontal, KiweeTheme.Spacing.screenH)
@@ -53,8 +55,8 @@ struct NameStepView: View {
             // Live avatar preview
             if !viewModel.userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 GradientAvatarPreview(
-                    initials: viewModel.avatarInitials,
-                    gradientColors: viewModel.selectedGradient.colors,
+                    emoji: viewModel.selectedAvatar.emoji,
+                    gradientColors: [viewModel.theme.glowMid, viewModel.theme.glowWarm],
                     size: 80
                 )
                 .padding(.top, 32)
@@ -71,5 +73,9 @@ struct NameStepView: View {
 // MARK: - Preview
 
 #Preview {
-    NameStepView(viewModel: OnboardingViewModel())
+    ZStack {
+        OnboardingBackground(theme: DynamicTheme())
+        NameStepView(viewModel: OnboardingViewModel())
+    }
+    .preferredColorScheme(.dark)
 }

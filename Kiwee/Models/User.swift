@@ -21,30 +21,6 @@ enum AccountType: String, CaseIterable, Sendable {
     }
 }
 
-// MARK: - AppearanceMode
-
-enum AppearanceMode: String, CaseIterable, Sendable {
-    case system
-    case light
-    case dark
-
-    var label: String {
-        switch self {
-        case .system: "System"
-        case .light:  "Light"
-        case .dark:   "Dark"
-        }
-    }
-
-    var icon: String {
-        switch self {
-        case .system: "circle.lefthalf.filled"
-        case .light:  "sun.max"
-        case .dark:   "moon"
-        }
-    }
-}
-
 // MARK: - KiweeLevel
 
 enum KiweeLevel: CaseIterable, Sendable {
@@ -117,6 +93,8 @@ final class User {
     var name: String
     var avatarInitials: String
     var avatarGradientColors: [Color]
+    var avatarEmoji: String
+    var accentColorHex: String
     var accountType: AccountType
     var memberSince: Date
     var xp: Int
@@ -127,7 +105,6 @@ final class User {
     var notificationsEnabled: Bool
     var choreRemindersEnabled: Bool
     var savingsAlertsEnabled: Bool
-    var appearanceMode: AppearanceMode
 
     init(
         name: String,
@@ -143,11 +120,14 @@ final class User {
         notificationsEnabled: Bool,
         choreRemindersEnabled: Bool,
         savingsAlertsEnabled: Bool,
-        appearanceMode: AppearanceMode
+        avatarEmoji: String = "🚀",
+        accentColorHex: String = "#29C76A"
     ) {
         self.name = name
         self.avatarInitials = avatarInitials
         self.avatarGradientColors = avatarGradientColors
+        self.avatarEmoji = avatarEmoji
+        self.accentColorHex = accentColorHex
         self.accountType = accountType
         self.memberSince = memberSince
         self.xp = xp
@@ -158,7 +138,6 @@ final class User {
         self.notificationsEnabled = notificationsEnabled
         self.choreRemindersEnabled = choreRemindersEnabled
         self.savingsAlertsEnabled = savingsAlertsEnabled
-        self.appearanceMode = appearanceMode
     }
 
     // MARK: Derived
@@ -171,13 +150,18 @@ final class User {
         return parts.first.map(String.init) ?? name
     }
 
+    /// The user's accent color reconstructed from hex.
+    var accentColor: Color {
+        Color(hex: accentColorHex) ?? .kiweeGreen
+    }
+
     // MARK: Mock / sample data
 
     @MainActor
     static let sample = User(
         name: "Kiwee Kid",
         avatarInitials: "KK",
-        avatarGradientColors: [.pink, .purple],
+        avatarGradientColors: [Color(red: 0.15, green: 0.25, blue: 0.55), Color(red: 0.30, green: 0.50, blue: 0.95)],
         accountType: .kid,
         memberSince: Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1))!,
         xp: 340,
@@ -188,9 +172,41 @@ final class User {
         notificationsEnabled: true,
         choreRemindersEnabled: true,
         savingsAlertsEnabled: true,
-        appearanceMode: .system
+        avatarEmoji: "🚀",
+        accentColorHex: "#4D80F2"
     )
 
     /// Alias used by `HomeViewModel`.
     @MainActor static let mock = sample
+}
+
+// MARK: - Color hex helpers
+
+extension Color {
+    /// Create a Color from a hex string like "#4D80F2".
+    init?(hex: String) {
+        let cleaned = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "#", with: "")
+        guard cleaned.count == 6,
+              let value = UInt64(cleaned, radix: 16) else { return nil }
+        let r = Double((value >> 16) & 0xFF) / 255.0
+        let g = Double((value >> 8) & 0xFF) / 255.0
+        let b = Double(value & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
+
+    /// Convert this color to a hex string.
+    var hexString: String {
+        let components = UIColor(self).cgColor.components ?? [0, 0, 0]
+        let r = Int((components[0]) * 255)
+        let g = Int((components[safe: 1] ?? 0) * 255)
+        let b = Int((components[safe: 2] ?? 0) * 255)
+        return String(format: "#%02X%02X%02X", r, g, b)
+    }
+}
+
+private extension Array {
+    subscript(safe index: Int) -> Element? {
+        indices.contains(index) ? self[index] : nil
+    }
 }

@@ -6,14 +6,12 @@ import SwiftUI
 /// so each section can control its own layout, horizontal scroll, and edge bleed.
 struct HomeView: View {
     @State private var viewModel = HomeViewModel()
-    /// Drives the dark/light mode toggle in the header. Persists within the session.
-    @State private var isDarkMode = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: KiweeTheme.Spacing.sectionGap) {
-                    HomeHeaderView(user: viewModel.user, isDarkMode: $isDarkMode)
+                    HomeHeaderView(user: viewModel.user)
 
                     BalanceHeroCard(user: viewModel.user)
 
@@ -32,17 +30,12 @@ struct HomeView: View {
             .navigationBarHidden(true)
             .background(KiweeTheme.Colors.screenBackground)
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
 // MARK: - Preview
 
-#Preview("Home – Light") {
-    HomeView()
-}
-
-#Preview("Home – Dark") {
+#Preview("Home") {
     HomeView()
         .preferredColorScheme(.dark)
 }

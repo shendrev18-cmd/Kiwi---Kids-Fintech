@@ -2,44 +2,45 @@ import SwiftUI
 
 // MARK: - AvatarStepView
 
-/// Lets the user pick a gradient color pair for their avatar circle.
+/// Grid of emoji character avatars. Selecting one changes the app's accent color
+/// and the entire screen's gradient animates to match.
 struct AvatarStepView: View {
     @Bindable var viewModel: OnboardingViewModel
 
-    private let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: 4)
+    private let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: 5)
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height: 32)
+            Spacer().frame(height: 80)
 
-            // Live preview
+            // Live preview of selected avatar
             GradientAvatarPreview(
-                initials: viewModel.avatarInitials,
-                gradientColors: viewModel.selectedGradient.colors,
+                emoji: viewModel.selectedAvatar.emoji,
+                gradientColors: [viewModel.theme.glowMid, viewModel.theme.glowWarm],
                 size: 120
             )
-            .padding(.bottom, 8)
+            .padding(.bottom, 12)
 
-            Text(viewModel.userName.isEmpty ? "Your Avatar" : viewModel.userName)
-                .font(.lexend(.title3, weight: .semibold))
+            Text(viewModel.userName.isEmpty ? "Choose your avatar" : viewModel.userName)
+                .font(.lexend(.title3, weight: .bold))
+                .foregroundStyle(.white)
                 .padding(.bottom, 4)
 
-            Text("Pick your favorite colors")
+            Text("Pick a character — it sets your style!")
                 .font(.figtree(.subheadline, weight: .regular))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.5))
 
-            Spacer().frame(height: 36)
+            Spacer().frame(height: 32)
 
-            // Color grid
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(AvatarGradientOption.presets) { option in
-                    GradientPickerCell(
-                        option: option,
-                        isSelected: viewModel.selectedGradient.id == option.id
+            // Avatar grid
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(AvatarOption.presets) { avatar in
+                    AvatarPickerCell(
+                        avatar: avatar,
+                        isSelected: viewModel.selectedAvatar.id == avatar.id,
+                        theme: viewModel.theme
                     ) {
-                        withAnimation(.spring(duration: 0.3)) {
-                            viewModel.selectedGradient = option
-                        }
+                        viewModel.selectedAvatar = avatar
                     }
                 }
             }
@@ -47,51 +48,60 @@ struct AvatarStepView: View {
 
             Spacer()
         }
+        .animation(.easeOut(duration: 0.4), value: viewModel.selectedAvatar.id)
     }
 }
 
-// MARK: - GradientPickerCell
+// MARK: - AvatarPickerCell
 
-/// A single tappable gradient circle in the avatar color picker grid.
-private struct GradientPickerCell: View {
-    let option: AvatarGradientOption
+/// A single tappable emoji avatar in the grid.
+private struct AvatarPickerCell: View {
+    let avatar: AvatarOption
     let isSelected: Bool
+    let theme: DynamicTheme
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 8) {
+            VStack(spacing: 6) {
                 ZStack {
+                    // Background circle — uses the avatar's own seed color when selected
                     Circle()
                         .fill(
-                            LinearGradient(
-                                colors: option.colors,
+                            isSelected
+                            ? LinearGradient(
+                                colors: [theme.glowMid, theme.glowWarm],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
-                            )
+                              )
+                            : LinearGradient(
+                                colors: [Color.white.opacity(0.08), Color.white.opacity(0.04)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                              )
                         )
                         .frame(width: 56, height: 56)
 
+                    // Selection ring
                     if isSelected {
                         Circle()
-                            .strokeBorder(.white, lineWidth: 3)
+                            .strokeBorder(theme.accent, lineWidth: 2.5)
                             .frame(width: 56, height: 56)
-
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundStyle(.white)
                     }
+
+                    Text(avatar.emoji)
+                        .font(.system(size: 28))
                 }
-                .shadow(color: option.colors.first?.opacity(0.3) ?? .clear, radius: isSelected ? 8 : 4, y: 4)
                 .scaleEffect(isSelected ? 1.1 : 1.0)
 
-                Text(option.label)
-                    .font(.figtree(.caption, weight: isSelected ? .semibold : .regular))
-                    .foregroundStyle(isSelected ? .primary : .secondary)
+                Text(avatar.label)
+                    .font(.figtree(.caption2, weight: isSelected ? .semibold : .regular))
+                    .foregroundStyle(isSelected ? .white : .white.opacity(0.5))
+                    .lineLimit(1)
             }
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("\(option.label) gradient")
+        .accessibilityLabel(avatar.label)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
@@ -99,9 +109,13 @@ private struct GradientPickerCell: View {
 // MARK: - Preview
 
 #Preview {
-    AvatarStepView(viewModel: {
-        let vm = OnboardingViewModel()
-        vm.userName = "Alex"
-        return vm
-    }())
+    ZStack {
+        OnboardingBackground(theme: DynamicTheme())
+        AvatarStepView(viewModel: {
+            let vm = OnboardingViewModel()
+            vm.userName = "Alex"
+            return vm
+        }())
+    }
+    .preferredColorScheme(.dark)
 }

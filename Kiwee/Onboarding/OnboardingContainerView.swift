@@ -2,8 +2,8 @@ import SwiftUI
 
 // MARK: - OnboardingContainerView
 
-/// Root onboarding view that manages step transitions, progress dots,
-/// and Next/Back navigation. Shown instead of the tab bar on first launch.
+/// Root onboarding view — dark themed with dynamic gradient background,
+/// segmented progress bar, back arrow, and bottom CTA.
 struct OnboardingContainerView: View {
     @State private var viewModel = OnboardingViewModel()
 
@@ -12,15 +12,14 @@ struct OnboardingContainerView: View {
 
     var body: some View {
         ZStack {
-            // Background
-            KiweeTheme.Colors.screenBackground
-                .ignoresSafeArea()
+            // Dynamic gradient background — pinned to viewport, animates with avatar
+            OnboardingBackground(theme: viewModel.theme)
 
             // Step content
             Group {
                 switch viewModel.currentStep {
                 case .welcome:
-                    WelcomeStepView {
+                    WelcomeStepView(theme: viewModel.theme) {
                         viewModel.next()
                     }
                 case .name:
@@ -44,32 +43,42 @@ struct OnboardingContainerView: View {
                 removal: .move(edge: .leading).combined(with: .opacity)
             ))
 
-            // Navigation overlay (progress dots + buttons) — hidden on welcome & celebration
+            // Navigation overlay — hidden on welcome & celebration
             if viewModel.currentStep != .welcome && viewModel.currentStep != .celebration {
-                VStack {
-                    // Progress dots at top
-                    OnboardingProgressDots(currentStep: viewModel.currentStep)
-                        .padding(.top, 16)
+                VStack(spacing: 0) {
+                    // Top bar: back arrow + segmented progress bar
+                    HStack(spacing: 12) {
+                        if viewModel.currentStep.allowsBack {
+                            Button {
+                                viewModel.back()
+                            } label: {
+                                Image(systemName: "arrow.left")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .foregroundStyle(.white)
+                                    .frame(width: 36, height: 36)
+                            }
+                            .buttonStyle(.plain)
+                        } else {
+                            Spacer().frame(width: 36)
+                        }
+
+                        OnboardingProgressBar(
+                            currentStep: viewModel.currentStep,
+                            accentColor: viewModel.theme.accent
+                        )
+                    }
+                    .padding(.horizontal, KiweeTheme.Spacing.screenH)
+                    .padding(.top, 8)
 
                     Spacer()
 
-                    // Bottom navigation buttons
-                    VStack(spacing: 12) {
-                        OnboardingButton(
-                            label: viewModel.currentStep.buttonLabel,
-                            isEnabled: viewModel.canAdvance
-                        ) {
-                            viewModel.next()
-                        }
-
-                        if viewModel.currentStep.allowsBack {
-                            OnboardingButton(
-                                label: "Back",
-                                style: .secondary
-                            ) {
-                                viewModel.back()
-                            }
-                        }
+                    // Bottom CTA
+                    OnboardingButton(
+                        label: viewModel.currentStep.buttonLabel,
+                        accentColor: viewModel.theme.accent,
+                        isEnabled: viewModel.canAdvance
+                    ) {
+                        viewModel.next()
                     }
                     .padding(.horizontal, KiweeTheme.Spacing.screenH)
                     .padding(.bottom, 24)
@@ -86,4 +95,5 @@ struct OnboardingContainerView: View {
     OnboardingContainerView { user in
         print("Onboarding complete for \(user.name)")
     }
+    .preferredColorScheme(.dark)
 }

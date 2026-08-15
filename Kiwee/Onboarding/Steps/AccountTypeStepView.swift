@@ -2,91 +2,114 @@ import SwiftUI
 
 // MARK: - AccountTypeStepView
 
-/// Two large tappable cards for selecting Kid or Parent account type.
+/// Selection cards matching the dark reference: circle radio on left,
+/// text in center, emoji on right.
 struct AccountTypeStepView: View {
     @Bindable var viewModel: OnboardingViewModel
 
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer().frame(height: 40)
+        VStack(alignment: .leading, spacing: 0) {
+            Spacer().frame(height: 80)
 
+            // Heading — left-aligned like reference
             Text("Who are you?")
-                .font(.lexend(.title2, weight: .bold))
+                .font(.lexend(.title, weight: .bold))
+                .foregroundStyle(.white)
                 .padding(.bottom, 8)
 
-            Text("We'll tailor Kiwee just for you.")
+            Text("Let us know so we can personalize your experience.")
                 .font(.figtree(.body, weight: .regular))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.5))
 
-            Spacer().frame(height: 40)
+            Spacer().frame(height: 32)
 
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 AccountTypeCard(
                     type: .kid,
-                    isSelected: viewModel.selectedAccountType == .kid
+                    description: "Earn money for chores, set savings goals, and learn to manage your money!",
+                    isSelected: viewModel.selectedAccountType == .kid,
+                    theme: viewModel.theme
                 ) {
-                    withAnimation(.spring(duration: 0.3)) {
+                    withAnimation(.easeOut(duration: 0.25)) {
                         viewModel.selectedAccountType = .kid
                     }
                 }
 
                 AccountTypeCard(
                     type: .parent,
-                    isSelected: viewModel.selectedAccountType == .parent
+                    description: "Set up allowances, assign chores, and help your kids build smart habits.",
+                    isSelected: viewModel.selectedAccountType == .parent,
+                    theme: viewModel.theme
                 ) {
-                    withAnimation(.spring(duration: 0.3)) {
+                    withAnimation(.easeOut(duration: 0.25)) {
                         viewModel.selectedAccountType = .parent
                     }
                 }
             }
-            .padding(.horizontal, KiweeTheme.Spacing.screenH)
 
             Spacer()
         }
+        .padding(.horizontal, KiweeTheme.Spacing.screenH)
     }
 }
 
 // MARK: - AccountTypeCard
 
-/// A single tappable account type selection card.
+/// Dark selection card: radio circle on left, text, emoji on right.
 private struct AccountTypeCard: View {
     let type: AccountType
+    let description: String
     let isSelected: Bool
+    let theme: DynamicTheme
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 16) {
-                Text(type.emoji)
-                    .font(.system(size: 44))
+            HStack(spacing: 14) {
+                // Radio circle
+                ZStack {
+                    Circle()
+                        .strokeBorder(
+                            isSelected ? theme.accent : Color.white.opacity(0.25),
+                            lineWidth: 2
+                        )
+                        .frame(width: 24, height: 24)
 
+                    if isSelected {
+                        Circle()
+                            .fill(theme.accent)
+                            .frame(width: 14, height: 14)
+                    }
+                }
+
+                // Text
                 VStack(alignment: .leading, spacing: 4) {
                     Text(type.label)
-                        .font(.lexend(.headline, weight: .semibold))
-                        .foregroundStyle(.primary)
+                        .font(.lexend(.subheadline, weight: .semibold))
+                        .foregroundStyle(.white)
 
-                    Text(subtitle)
-                        .font(.figtree(.subheadline, weight: .regular))
-                        .foregroundStyle(.secondary)
+                    Text(description)
+                        .font(.figtree(.caption, weight: .regular))
+                        .foregroundStyle(.white.opacity(0.5))
                         .lineLimit(2)
                 }
 
                 Spacer()
 
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                    .font(.system(size: 24))
-                    .foregroundStyle(isSelected ? Color.kiweeGreen : .gray.opacity(0.4))
+                // Emoji
+                Text(type.emoji)
+                    .font(.system(size: 32))
             }
-            .padding(KiweeTheme.Spacing.cardPad)
+            .padding(16)
             .background(
-                RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
-                    .fill(Color(.secondarySystemGroupedBackground))
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.white.opacity(isSelected ? 0.10 : 0.06))
             )
             .overlay(
-                RoundedRectangle(cornerRadius: KiweeTheme.Radius.card)
+                RoundedRectangle(cornerRadius: 16)
                     .strokeBorder(
-                        isSelected ? Color.kiweeGreen : .clear,
-                        lineWidth: 2.5
+                        isSelected ? theme.accent.opacity(0.5) : Color.white.opacity(0.06),
+                        lineWidth: 1
                     )
             )
         }
@@ -94,17 +117,14 @@ private struct AccountTypeCard: View {
         .accessibilityLabel(type.label)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
-
-    private var subtitle: String {
-        switch type {
-        case .kid:    "Earn money for chores, set savings goals, and learn to manage your money!"
-        case .parent: "Set up allowances, assign chores, and help your kids build smart habits."
-        }
-    }
 }
 
 // MARK: - Preview
 
 #Preview {
-    AccountTypeStepView(viewModel: OnboardingViewModel())
+    ZStack {
+        OnboardingBackground(theme: DynamicTheme())
+        AccountTypeStepView(viewModel: OnboardingViewModel())
+    }
+    .preferredColorScheme(.dark)
 }

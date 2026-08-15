@@ -2,28 +2,29 @@ import SwiftUI
 
 // MARK: - FeatureTourStepView
 
-/// Three-page carousel introducing Kiwee's core features: Earn, Save, Spend.
+/// Three-page carousel introducing Kiwee's core features — dark themed.
 struct FeatureTourStepView: View {
     @Bindable var viewModel: OnboardingViewModel
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height: 24)
+            Spacer().frame(height: 80)
 
             Text("Here's what you can do")
-                .font(.lexend(.title2, weight: .bold))
+                .font(.lexend(.title, weight: .bold))
+                .foregroundStyle(.white)
                 .padding(.bottom, 8)
 
             Text("Swipe to explore")
                 .font(.figtree(.subheadline, weight: .regular))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.white.opacity(0.5))
 
             Spacer().frame(height: 24)
 
             // Feature pages
             TabView(selection: $viewModel.tourPage) {
                 ForEach(Array(FeatureHighlight.all.enumerated()), id: \.offset) { index, feature in
-                    FeatureCard(feature: feature)
+                    FeatureCard(feature: feature, theme: viewModel.theme)
                         .tag(index)
                 }
             }
@@ -37,29 +38,24 @@ struct FeatureTourStepView: View {
 
 // MARK: - FeatureHighlight
 
-/// Data model for a single feature tour page.
 private struct FeatureHighlight {
-    let icon: String
-    let iconColor: Color
+    let emoji: String
     let title: String
     let description: String
 
     static let all: [FeatureHighlight] = [
         FeatureHighlight(
-            icon: "sparkles",
-            iconColor: KiweeTheme.Colors.rewardGold,
+            emoji: "✨",
             title: "Earn Rewards",
             description: "Complete chores and tasks to earn real money. The more you do, the more you earn!"
         ),
         FeatureHighlight(
-            icon: "target",
-            iconColor: KiweeTheme.Colors.goalPurple,
+            emoji: "🎯",
             title: "Save Smart",
             description: "Set savings goals for the things you want. Watch your progress grow every day."
         ),
         FeatureHighlight(
-            icon: "creditcard.fill",
-            iconColor: KiweeTheme.Colors.primary,
+            emoji: "💳",
             title: "Spend Wisely",
             description: "Learn to make smart spending choices. Track where your money goes."
         ),
@@ -68,31 +64,31 @@ private struct FeatureHighlight {
 
 // MARK: - FeatureCard
 
-/// A single feature highlight card shown in the tour carousel.
 private struct FeatureCard: View {
     let feature: FeatureHighlight
+    let theme: DynamicTheme
 
     var body: some View {
         VStack(spacing: 24) {
-            // Large icon in a colored circle
+            // Large emoji in a themed circle
             ZStack {
                 Circle()
-                    .fill(feature.iconColor.opacity(0.15))
+                    .fill(theme.accent.opacity(0.12))
                     .frame(width: 120, height: 120)
 
-                Image(systemName: feature.icon)
-                    .font(.system(size: 48, weight: .medium))
-                    .foregroundStyle(feature.iconColor)
+                Text(feature.emoji)
+                    .font(.system(size: 52))
             }
-            .shadow(color: feature.iconColor.opacity(0.2), radius: 16, y: 8)
+            .shadow(color: theme.accent.opacity(0.2), radius: 20, y: 8)
 
             VStack(spacing: 12) {
                 Text(feature.title)
                     .font(.lexend(.title3, weight: .bold))
+                    .foregroundStyle(.white)
 
                 Text(feature.description)
                     .font(.figtree(.body, weight: .regular))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.5))
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
                     .frame(maxWidth: 280)
@@ -106,5 +102,9 @@ private struct FeatureCard: View {
 // MARK: - Preview
 
 #Preview {
-    FeatureTourStepView(viewModel: OnboardingViewModel())
+    ZStack {
+        OnboardingBackground(theme: DynamicTheme())
+        FeatureTourStepView(viewModel: OnboardingViewModel())
+    }
+    .preferredColorScheme(.dark)
 }

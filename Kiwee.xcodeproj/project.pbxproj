@@ -32,6 +32,7 @@
 		A624155FF25ECFA208555605 /* GradientAvatarPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6BC3014F986BB04812A38F /* GradientAvatarPreview.swift */; };
 		A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8890C74025F33B98D08 /* HomeView.swift */; };
 		AA3A072D19CE7D5415E4A708 /* EarningOpportunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09E0077AC28880A83F53AE /* EarningOpportunityCard.swift */; };
+		AAD6A377839D28AC0C482BD1 /* OnboardingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EA17D0013869B5224097D /* OnboardingBackground.swift */; };
 		AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183BA2D8450E54767692F7A0 /* SaveView.swift */; };
 		B3D81F9AF8CD8962D5FB5543 /* SavingsGoalsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF587304801EA7AC9DECDB /* SavingsGoalsSectionView.swift */; };
 		B94B71E6A268B43F8893DED3 /* EarningOpportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13C495B0F3A7499215CC5CB /* EarningOpportunity.swift */; };
@@ -43,12 +44,14 @@
 		D456E757322F99F799E8D8F4 /* WelcomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DB988BF6BAEF200FEDA4C /* WelcomeStepView.swift */; };
 		D524974BF3A4D33DFF6C5513 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1B9291D494E352B3252189 /* OnboardingButton.swift */; };
 		D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07481386C7B381E4737E8F /* ActivityView.swift */; };
+		DA45437BD61433BF308DEAA8 /* DynamicTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302A3F61587A6A2586BE4A75 /* DynamicTheme.swift */; };
 		DD00E23C1748C88EB479476E /* QuickActionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB903024A982EB39440301 /* QuickActionsRow.swift */; };
 		E462754510EA4AD4119018E8 /* FirstGoalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44505E8AAAD7B5F81724DF07 /* FirstGoalStepView.swift */; };
 		E6C3E66CD5249C71AC646B7F /* AddGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBE486015A1BCC0987B0AC0 /* AddGoalCard.swift */; };
 		ED77700CABD8703774068D1F /* FeatureTourStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02AE855D8D4FB2927DC8606 /* FeatureTourStepView.swift */; };
 		F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FEEEE209997119BB8FC88C /* KiweeTab.swift */; };
 		F3D85B90D8E636A29A749DF6 /* SavingsGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682C8F8361B6D32BCDCD4D7D /* SavingsGoalCard.swift */; };
+		F9D8A451EBAAC4E80E686B87 /* OnboardingProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3289F0574A432F6A5528ADBC /* OnboardingProgressBar.swift */; };
 		FB176280271C5F81FF3F167B /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1DE86A29077732A387086F /* TransactionRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +62,10 @@
 		0FC13783A47C261EBA9963FA /* CelebrationStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationStepView.swift; sourceTree = "<group>"; };
 		11CADBC746D18D1DA6F1761D /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		183BA2D8450E54767692F7A0 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+		1C6EA17D0013869B5224097D /* OnboardingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackground.swift; sourceTree = "<group>"; };
 		2FBF587304801EA7AC9DECDB /* SavingsGoalsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalsSectionView.swift; sourceTree = "<group>"; };
+		302A3F61587A6A2586BE4A75 /* DynamicTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTheme.swift; sourceTree = "<group>"; };
+		3289F0574A432F6A5528ADBC /* OnboardingProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressBar.swift; sourceTree = "<group>"; };
 		349A2A8FBDF1674F91179959 /* KiweeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeFonts.swift; sourceTree = "<group>"; };
 		3D09E0077AC28880A83F53AE /* EarningOpportunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningOpportunityCard.swift; sourceTree = "<group>"; };
 		3E4586B604D57E5D477B1E9D /* BalanceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeroCard.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		4A9D1DB352867587DE359107 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				302A3F61587A6A2586BE4A75 /* DynamicTheme.swift */,
 				F03877645A757447EDDEEAE5 /* KiweeTheme.swift */,
 			);
 			path = Theme;
@@ -146,7 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				DD6BC3014F986BB04812A38F /* GradientAvatarPreview.swift */,
+				1C6EA17D0013869B5224097D /* OnboardingBackground.swift */,
 				EB1B9291D494E352B3252189 /* OnboardingButton.swift */,
+				3289F0574A432F6A5528ADBC /* OnboardingProgressBar.swift */,
 				49FCB1E874654A3DB1289C32 /* OnboardingProgressDots.swift */,
 			);
 			path = Components;
@@ -340,6 +349,7 @@
 				CA8E54C1AEC5C0446D4A8114 /* BalanceHeroCard.swift in Sources */,
 				18266A19DD881728E21434D4 /* CelebrationStepView.swift in Sources */,
 				662687618635FB1AFC149D73 /* ContentView.swift in Sources */,
+				DA45437BD61433BF308DEAA8 /* DynamicTheme.swift in Sources */,
 				11D8483235961405C8EFA76B /* EarnView.swift in Sources */,
 				B94B71E6A268B43F8893DED3 /* EarningOpportunity.swift in Sources */,
 				AA3A072D19CE7D5415E4A708 /* EarningOpportunityCard.swift in Sources */,
@@ -356,8 +366,10 @@
 				F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */,
 				6ACE34AD4250B79A0B901C10 /* KiweeTheme.swift in Sources */,
 				49369050B1C10D9E723BDC64 /* NameStepView.swift in Sources */,
+				AAD6A377839D28AC0C482BD1 /* OnboardingBackground.swift in Sources */,
 				D524974BF3A4D33DFF6C5513 /* OnboardingButton.swift in Sources */,
 				83220DE0D4D5C93176503608 /* OnboardingContainerView.swift in Sources */,
+				F9D8A451EBAAC4E80E686B87 /* OnboardingProgressBar.swift in Sources */,
 				98AABB8369D84692E3CB9950 /* OnboardingProgressDots.swift in Sources */,
 				3B7F79C394087DE7D293D2D7 /* OnboardingStep.swift in Sources */,
 				8B2746BABB30C02DF942DA4F /* OnboardingViewModel.swift in Sources */,

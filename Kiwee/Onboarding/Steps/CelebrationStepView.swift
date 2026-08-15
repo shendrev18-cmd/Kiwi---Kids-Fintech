@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - CelebrationStepView
 
-/// Final onboarding screen with confetti animation and the user's new avatar.
+/// Final onboarding screen — dark theme with confetti and themed avatar glow.
 struct CelebrationStepView: View {
     let viewModel: OnboardingViewModel
     let onComplete: () -> Void
@@ -16,7 +16,7 @@ struct CelebrationStepView: View {
         ZStack {
             // Confetti particles
             if showConfetti {
-                ConfettiView()
+                ConfettiView(accentColor: viewModel.theme.accent)
                     .ignoresSafeArea()
                     .allowsHitTesting(false)
             }
@@ -24,26 +24,25 @@ struct CelebrationStepView: View {
             VStack(spacing: 0) {
                 Spacer()
 
-                // Avatar with celebratory ring
+                // Avatar with themed glow ring
                 ZStack {
-                    // Outer glow ring
                     Circle()
                         .fill(
                             RadialGradient(
                                 colors: [
-                                    viewModel.selectedGradient.colors.first?.opacity(0.3) ?? .clear,
+                                    viewModel.theme.accent.opacity(0.3),
                                     .clear
                                 ],
                                 center: .center,
                                 startRadius: 60,
-                                endRadius: 120
+                                endRadius: 130
                             )
                         )
-                        .frame(width: 200, height: 200)
+                        .frame(width: 220, height: 220)
 
                     GradientAvatarPreview(
-                        initials: viewModel.avatarInitials,
-                        gradientColors: viewModel.selectedGradient.colors,
+                        emoji: viewModel.selectedAvatar.emoji,
+                        gradientColors: [viewModel.theme.glowMid, viewModel.theme.glowWarm],
                         size: 140
                     )
                 }
@@ -56,14 +55,15 @@ struct CelebrationStepView: View {
                 VStack(spacing: 12) {
                     Text("You're all set! 🎉")
                         .font(.lexend(.title, weight: .bold))
+                        .foregroundStyle(.white)
 
                     Text("Welcome to Kiwee, \(viewModel.userName.isEmpty ? "friend" : viewModel.userName)!")
                         .font(.figtree(.title3, weight: .medium))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.6))
 
                     Text("Your \(viewModel.selectedAccountType.label) account is ready.")
                         .font(.figtree(.body, weight: .regular))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.4))
                 }
                 .opacity(textOpacity)
                 .multilineTextAlignment(.center)
@@ -72,7 +72,10 @@ struct CelebrationStepView: View {
                 Spacer()
 
                 // Enter app button
-                OnboardingButton(label: "Let's Go!") {
+                OnboardingButton(
+                    label: "Let's Go!",
+                    accentColor: viewModel.theme.accent
+                ) {
                     onComplete()
                 }
                 .padding(.horizontal, KiweeTheme.Spacing.screenH)
@@ -97,8 +100,8 @@ struct CelebrationStepView: View {
 
 // MARK: - ConfettiView
 
-/// Lightweight confetti particle effect using Canvas + TimelineView.
 private struct ConfettiView: View {
+    let accentColor: Color
     @State private var particles: [ConfettiParticle] = ConfettiParticle.generate(count: 60)
 
     var body: some View {
@@ -160,7 +163,7 @@ private struct ConfettiParticle {
             KiweeTheme.Colors.rewardGold,
             KiweeTheme.Colors.goalPurple,
             KiweeTheme.Colors.actionOrange,
-            .pink, .blue, .mint
+            .pink, .cyan, .mint
         ]
         let now = Date.timeIntervalSinceReferenceDate
 
@@ -185,12 +188,16 @@ private struct ConfettiParticle {
 // MARK: - Preview
 
 #Preview {
-    CelebrationStepView(
-        viewModel: {
-            let vm = OnboardingViewModel()
-            vm.userName = "Alex"
-            return vm
-        }(),
-        onComplete: {}
-    )
+    ZStack {
+        OnboardingBackground(theme: DynamicTheme())
+        CelebrationStepView(
+            viewModel: {
+                let vm = OnboardingViewModel()
+                vm.userName = "Alex"
+                return vm
+            }(),
+            onComplete: {}
+        )
+    }
+    .preferredColorScheme(.dark)
 }

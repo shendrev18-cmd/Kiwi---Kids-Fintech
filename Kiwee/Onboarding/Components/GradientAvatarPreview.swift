@@ -2,10 +2,10 @@ import SwiftUI
 
 // MARK: - GradientAvatarPreview
 
-/// Circular avatar with a gradient background and initials overlay.
+/// Circular avatar with a gradient background and emoji or initials overlay.
 /// Used in the avatar picker step and the celebration step.
 struct GradientAvatarPreview: View {
-    let initials: String
+    let emoji: String
     let gradientColors: [Color]
     var size: CGFloat = 120
 
@@ -20,11 +20,10 @@ struct GradientAvatarPreview: View {
                     )
                 )
                 .frame(width: size, height: size)
-                .shadow(color: gradientColors.first?.opacity(0.4) ?? .clear, radius: 16, y: 8)
+                .shadow(color: gradientColors.last?.opacity(0.5) ?? .clear, radius: size * 0.15, y: size * 0.06)
 
-            Text(initials)
-                .font(.lexend(size: size * 0.35, weight: .bold))
-                .foregroundStyle(.white)
+            Text(emoji)
+                .font(.system(size: size * 0.45))
         }
     }
 }
@@ -33,8 +32,9 @@ struct GradientAvatarPreview: View {
 
 #Preview {
     HStack(spacing: 20) {
-        GradientAvatarPreview(initials: "KK", gradientColors: [.pink, .purple])
-        GradientAvatarPreview(initials: "AJ", gradientColors: [.blue, .teal], size: 80)
-        GradientAvatarPreview(initials: "M", gradientColors: [.green, .mint], size: 60)
+        GradientAvatarPreview(emoji: "🚀", gradientColors: [Color(red: 0.15, green: 0.25, blue: 0.55), Color(red: 0.30, green: 0.50, blue: 0.95)])
+        GradientAvatarPreview(emoji: "🦖", gradientColors: [Color(red: 0.12, green: 0.40, blue: 0.18), Color(red: 0.30, green: 0.80, blue: 0.40)], size: 80)
+        GradientAvatarPreview(emoji: "🧙", gradientColors: [Color(red: 0.28, green: 0.15, blue: 0.50), Color(red: 0.55, green: 0.35, blue: 0.90)], size: 60)
     }
+    .preferredColorScheme(.dark)
 }

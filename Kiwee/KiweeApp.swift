@@ -11,18 +11,21 @@ struct KiweeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if hasCompletedOnboarding {
-                ContentView()
-                    .environment(user)
-                    .environment(\.font, .figtree(.body))
-            } else {
-                OnboardingContainerView { newUser in
-                    user = newUser
-                    withAnimation(.easeInOut(duration: 0.5)) {
-                        hasCompletedOnboarding = true
+            Group {
+                if hasCompletedOnboarding {
+                    ContentView()
+                        .environment(user)
+                        .environment(\.font, .figtree(.body))
+                } else {
+                    OnboardingContainerView { newUser in
+                        user = newUser
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            hasCompletedOnboarding = true
+                        }
                     }
                 }
             }
+            .preferredColorScheme(.dark)
         }
     }
 }

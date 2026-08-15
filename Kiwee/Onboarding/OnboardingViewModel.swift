@@ -1,22 +1,26 @@
 import SwiftUI
 
-// MARK: - AvatarGradientOption
+// MARK: - AvatarOption
 
-/// Preset gradient color pairs for the avatar picker.
-struct AvatarGradientOption: Identifiable, Sendable {
+/// A character avatar with an emoji and a seed color that drives the app's theme.
+struct AvatarOption: Identifiable, Sendable {
     let id: String
     let label: String
-    let colors: [Color]
+    let emoji: String
+    /// Hex seed color authored by design — drives the dynamic theme.
+    let seedColor: String
 
-    static let presets: [AvatarGradientOption] = [
-        AvatarGradientOption(id: "berry",    label: "Berry",    colors: [.pink, .purple]),
-        AvatarGradientOption(id: "ocean",    label: "Ocean",    colors: [.blue, .teal]),
-        AvatarGradientOption(id: "forest",   label: "Forest",   colors: [.green, .mint]),
-        AvatarGradientOption(id: "sunset",   label: "Sunset",   colors: [.orange, .red]),
-        AvatarGradientOption(id: "gold",     label: "Gold",     colors: [.yellow, .orange]),
-        AvatarGradientOption(id: "lavender", label: "Lavender", colors: [.purple, .indigo]),
-        AvatarGradientOption(id: "coral",    label: "Coral",    colors: [.pink, .orange]),
-        AvatarGradientOption(id: "kiwee",    label: "Kiwee",    colors: [Color.kiweeGreen, Color.kiweeTeal]),
+    static let presets: [AvatarOption] = [
+        AvatarOption(id: "astronaut",  label: "Astronaut",  emoji: "🚀", seedColor: "#4D80F2"),
+        AvatarOption(id: "dinosaur",   label: "Dinosaur",   emoji: "🦖", seedColor: "#4DCC66"),
+        AvatarOption(id: "unicorn",    label: "Unicorn",    emoji: "🦄", seedColor: "#D972E6"),
+        AvatarOption(id: "pirate",     label: "Pirate",     emoji: "🏴‍☠️", seedColor: "#E69933"),
+        AvatarOption(id: "superhero",  label: "Superhero",  emoji: "🦸", seedColor: "#F24D59"),
+        AvatarOption(id: "ninja",      label: "Ninja",      emoji: "🥷", seedColor: "#8C8CA6"),
+        AvatarOption(id: "mermaid",    label: "Mermaid",    emoji: "🧜", seedColor: "#33CCD9"),
+        AvatarOption(id: "robot",      label: "Robot",      emoji: "🤖", seedColor: "#66B3F2"),
+        AvatarOption(id: "dragon",     label: "Dragon",     emoji: "🐉", seedColor: "#F27333"),
+        AvatarOption(id: "wizard",     label: "Wizard",     emoji: "🧙", seedColor: "#8C59E6"),
     ]
 }
 
@@ -42,10 +46,15 @@ struct GoalIconOption: Identifiable, Sendable {
 
 // MARK: - OnboardingViewModel
 
-/// Drives the entire onboarding flow: step navigation, user input, and validation.
+/// Drives the entire onboarding flow: step navigation, user input, validation,
+/// and the dynamic theme that changes color when the avatar is selected.
 @Observable
 @MainActor
 final class OnboardingViewModel {
+    // MARK: Theme
+
+    let theme = DynamicTheme()
+
     // MARK: Step navigation
 
     var currentStep: OnboardingStep = .welcome
@@ -53,7 +62,14 @@ final class OnboardingViewModel {
     // MARK: User input
 
     var userName: String = ""
-    var selectedGradient: AvatarGradientOption = AvatarGradientOption.presets[0]
+    var selectedAvatar: AvatarOption = AvatarOption.presets[0] {
+        didSet {
+            // Animate the theme seed change
+            withAnimation(.easeOut(duration: 0.4)) {
+                theme.seedHex = selectedAvatar.seedColor
+            }
+        }
+    }
     var selectedAccountType: AccountType = .kid
 
     // Goal input (name is optional — falls back to icon label)
@@ -100,9 +116,9 @@ final class OnboardingViewModel {
         switch currentStep {
         case .welcome:      true
         case .name:         !userName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        case .avatar:       true  // has default selection
-        case .accountType:  true  // has default selection
-        case .firstGoal:    goalTargetAmount > 0  // name is optional
+        case .avatar:       true
+        case .accountType:  true
+        case .firstGoal:    goalTargetAmount > 0
         case .featureTour:  true
         case .celebration:  true
         }
@@ -129,10 +145,14 @@ final class OnboardingViewModel {
 
     /// Creates a `User` from the collected onboarding data.
     func buildUser() -> User {
-        User(
+        let hsl = theme.hexToHSL(selectedAvatar.seedColor)
+        let gradientDark = theme.hslToColor(h: hsl.h, s: min(max(hsl.s, 0.60), 0.85), l: 0.25)
+        let gradientLight = theme.hslToColor(h: hsl.h, s: min(max(hsl.s, 0.60), 0.85), l: 0.52)
+
+        return User(
             name: userName.trimmingCharacters(in: .whitespacesAndNewlines),
             avatarInitials: avatarInitials,
-            avatarGradientColors: selectedGradient.colors,
+            avatarGradientColors: [gradientDark, gradientLight],
             accountType: selectedAccountType,
             memberSince: Date(),
             xp: 0,
@@ -142,7 +162,8 @@ final class OnboardingViewModel {
             notificationsEnabled: true,
             choreRemindersEnabled: true,
             savingsAlertsEnabled: true,
-            appearanceMode: .system
+            avatarEmoji: selectedAvatar.emoji,
+            accentColorHex: selectedAvatar.seedColor
         )
     }
 }
