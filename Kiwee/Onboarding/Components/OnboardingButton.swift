@@ -1,0 +1,69 @@
+import SwiftUI
+
+// MARK: - OnboardingButton
+
+/// Full-width capsule button used throughout onboarding.
+/// Supports primary (filled green) and secondary (outlined) styles.
+struct OnboardingButton: View {
+    let label: String
+    var style: Style = .primary
+    var isEnabled: Bool = true
+    let action: () -> Void
+
+    enum Style {
+        case primary
+        case secondary
+    }
+
+    var body: some View {
+        Button(action: action) {
+            Text(label)
+                .font(.lexend(.headline, weight: .semibold))
+                .frame(maxWidth: .infinity)
+                .frame(height: 56)
+                .foregroundStyle(foregroundColor)
+                .background(background)
+                .clipShape(Capsule())
+                .overlay {
+                    if style == .secondary {
+                        Capsule()
+                            .strokeBorder(Color.kiweeGreen, lineWidth: 2)
+                    }
+                }
+        }
+        .disabled(!isEnabled)
+        .opacity(isEnabled ? 1 : 0.4)
+    }
+
+    private var foregroundColor: Color {
+        switch style {
+        case .primary:   .white
+        case .secondary: .kiweeGreen
+        }
+    }
+
+    @ViewBuilder
+    private var background: some View {
+        switch style {
+        case .primary:
+            LinearGradient(
+                colors: [Color.kiweeGreen, Color.kiweeTeal],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        case .secondary:
+            Color.clear
+        }
+    }
+}
+
+// MARK: - Preview
+
+#Preview {
+    VStack(spacing: 16) {
+        OnboardingButton(label: "Get Started", action: {})
+        OnboardingButton(label: "Next", isEnabled: false, action: {})
+        OnboardingButton(label: "Back", style: .secondary, action: {})
+    }
+    .padding()
+}
