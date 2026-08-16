@@ -2,12 +2,17 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(User.self) private var user
-    @State private var isEditingProfile = false
+    @Environment(AppSession.self) private var session
+
+    @Binding var selectedTab: KiweeTab
+
+    @State private var isEditingProfile   = false
+    @State private var showSignOutConfirm = false
 
     var body: some View {
         NavigationStack {
             List {
-                // MARK: Hero
+                // ── Hero ──────────────────────────────────────────────────
                 Section {
                     heroSection
                         .frame(maxWidth: .infinity)
@@ -15,129 +20,136 @@ struct ProfileView: View {
                         .listRowBackground(
                             LinearGradient(
                                 colors: [.pink.opacity(0.2), .purple.opacity(0.15)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
+                                startPoint: .topLeading, endPoint: .bottomTrailing
                             )
                         )
                         .listRowInsets(EdgeInsets())
                 }
 
-                // MARK: Stats
+                // ── Stats — tappable → Activity tab ───────────────────────
                 Section {
                     HStack(spacing: 0) {
                         StatCell(
-                            icon: "dollarsign.circle.fill",
-                            color: .green,
+                            icon: "dollarsign.circle.fill", color: .green,
                             value: user.totalEarned.formatted(.currency(code: "USD")),
                             label: "Earned"
-                        )
-                        Divider()
-                            .frame(maxHeight: 44)
+                        ) { selectedTab = .activity }
+
+                        Divider().frame(maxHeight: 44)
+
                         StatCell(
-                            icon: "target",
-                            color: .purple,
+                            icon: "target", color: .purple,
                             value: user.totalSaved.formatted(.currency(code: "USD")),
                             label: "Saved"
-                        )
-                        Divider()
-                            .frame(maxHeight: 44)
+                        ) { selectedTab = .activity }
+
+                        Divider().frame(maxHeight: 44)
+
                         StatCell(
-                            icon: "checkmark.circle.fill",
-                            color: .orange,
+                            icon: "checkmark.circle.fill", color: .orange,
                             value: "\(user.choresCompleted)",
                             label: "Chores"
-                        )
+                        ) { selectedTab = .activity }
                     }
                     .padding(.vertical, 8)
                 }
 
-                // MARK: Account
+                // ── Account ───────────────────────────────────────────────
                 Section("Account") {
-                    NavigationLink {
-                        NotificationsSettingsView()
-                    } label: {
+                    NavigationLink { NotificationsSettingsView() } label: {
                         Label("Notifications", systemImage: "bell")
                     }
-                    NavigationLink {
-                        PrivacySettingsView()
-                    } label: {
+                    NavigationLink { KidSecurityView() } label: {
+                        Label("Security", systemImage: "lock.shield")
+                    }
+                    NavigationLink { PrivacySettingsView() } label: {
                         Label("Privacy", systemImage: "lock")
                     }
-                    NavigationLink {
-                        AppearanceSettingsView()
-                    } label: {
+                    NavigationLink { AppearanceSettingsView() } label: {
                         Label("Appearance", systemImage: "paintbrush")
                     }
-                    NavigationLink {
-                        FamilyView()
-                    } label: {
+                    NavigationLink { KidFamilyView() } label: {
                         Label("Family", systemImage: "person.2")
                     }
                 }
 
-                // MARK: Support
+                // ── Support ───────────────────────────────────────────────
                 Section("Support") {
-                    NavigationLink {
-                        HelpCenterView()
-                    } label: {
+                    NavigationLink { HelpCenterView() } label: {
                         Label("Help Center", systemImage: "questionmark.circle")
                     }
-                    NavigationLink {
-                        SendFeedbackView()
-                    } label: {
+                    NavigationLink { SendFeedbackView() } label: {
                         Label("Send Feedback", systemImage: "envelope")
                     }
-                    NavigationLink {
-                        AboutKiweeView()
-                    } label: {
+                    NavigationLink { TermsOfServiceView() } label: {
+                        Label("Terms of Service", systemImage: "doc.plaintext")
+                    }
+                    NavigationLink { PrivacyPolicyView() } label: {
+                        Label("Privacy Policy", systemImage: "doc.text")
+                    }
+                    NavigationLink { AboutKiweeView() } label: {
                         Label("About Kiwee", systemImage: "info.circle")
+                    }
+                }
+
+                // ── Sign out — standalone red section ─────────────────────
+                Section {
+                    Button(role: .destructive) {
+                        showSignOutConfirm = true
+                    } label: {
+                        Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
             }
             .navigationTitle("Profile")
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 80) }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Edit") {
-                        isEditingProfile = true
-                    }
+                    Button("Edit") { isEditingProfile = true }
                 }
             }
             .sheet(isPresented: $isEditingProfile) {
                 EditProfileView()
             }
+            .confirmationDialog(
+                "Sign out of Kiwee?",
+                isPresented: $showSignOutConfirm,
+                titleVisibility: .visible
+            ) {
+                Button("Sign Out", role: .destructive) { session.signOut() }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("You can sign back in at any time.")
+            }
         }
     }
 
-    // MARK: - Hero Section
+    // MARK: - Hero
 
     private var heroSection: some View {
         VStack(spacing: 16) {
-            // Avatar
+            // Avatar — gradient circle, initials, never "?"
             Circle()
-                .fill(
-                    LinearGradient(
-                        colors: user.avatarGradientColors,
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+                .fill(LinearGradient(
+                    colors: user.avatarGradientColors,
+                    startPoint: .topLeading, endPoint: .bottomTrailing
+                ))
                 .frame(width: 96, height: 96)
                 .overlay {
-                    Text(user.avatarInitials)
+                    let initials = user.avatarInitials.isEmpty ? user.name.prefix(1).uppercased() : user.avatarInitials
+                    Text(initials)
                         .font(.system(size: 36, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                 }
                 .shadow(color: (user.avatarGradientColors.last ?? .purple).opacity(0.4), radius: 10, y: 4)
 
-            // Name + account info
             VStack(spacing: 4) {
                 Text(user.name)
                     .font(.title2.bold())
-
                 HStack(spacing: 6) {
                     Text(user.accountType.emoji)
-                    Text("·")
-                        .foregroundStyle(.tertiary)
+                    Text("·").foregroundStyle(.tertiary)
                     Text("Since \(user.memberSince.formatted(.dateTime.year()))")
                 }
                 .font(.caption)
@@ -145,42 +157,30 @@ struct ProfileView: View {
             }
 
             // Level badge
-            levelBadgeView
-        }
-    }
+            let lvl = user.level
+            let progress: Double = {
+                guard let next = lvl.nextLevelXP else { return 1.0 }
+                let range = next - lvl.minXP
+                guard range > 0 else { return 1.0 }
+                return Double(user.xp - lvl.minXP) / Double(range)
+            }()
 
-    // MARK: - Level Badge
+            VStack(spacing: 8) {
+                HStack(spacing: 6) {
+                    Text(lvl.emoji)
+                    Text(lvl.label).font(.caption.weight(.semibold))
+                    Spacer()
+                    Text("\(user.xp) XP").font(.caption.weight(.medium)).foregroundStyle(.secondary)
+                }
+                .padding(.horizontal, 14).padding(.vertical, 7)
+                .background(lvl.color.opacity(0.15), in: Capsule())
 
-    private var levelBadgeView: some View {
-        let lvl = user.level
-        let progress: Double = {
-            guard let nextXP = lvl.nextLevelXP else { return 1.0 }
-            let range = nextXP - lvl.minXP
-            guard range > 0 else { return 1.0 }
-            return Double(user.xp - lvl.minXP) / Double(range)
-        }()
-
-        return VStack(spacing: 8) {
-            // Pill
-            HStack(spacing: 6) {
-                Text(lvl.emoji)
-                Text(lvl.label)
-                    .font(.caption.weight(.semibold))
-                Spacer()
-                Text("\(user.xp) XP")
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(.secondary)
+                ProgressView(value: progress)
+                    .tint(lvl.color)
+                    .scaleEffect(x: 1, y: 1.5)
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 7)
-            .background(lvl.color.opacity(0.15), in: Capsule())
-
-            // Progress bar
-            ProgressView(value: progress)
-                .tint(lvl.color)
-                .scaleEffect(x: 1, y: 1.5)
+            .padding(.horizontal, 32)
         }
-        .padding(.horizontal, 32)
     }
 }
 
@@ -191,25 +191,25 @@ private struct StatCell: View {
     let color: Color
     let value: String
     let label: String
+    let action: () -> Void
 
     var body: some View {
-        VStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.title3)
-                .foregroundStyle(color)
-            Text(value)
-                .font(.system(.subheadline, design: .rounded, weight: .bold))
-            Text(label)
-                .font(.caption2)
-                .foregroundStyle(.secondary)
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: icon).font(.title3).foregroundStyle(color)
+                Text(value).font(.system(.subheadline, design: .rounded, weight: .bold))
+                Text(label).font(.caption2).foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
+        .buttonStyle(.plain)
     }
 }
 
 // MARK: - Preview
 
 #Preview {
-    ProfileView()
+    ProfileView(selectedTab: .constant(.profile))
         .environment(User.sample)
+        .environment(AppSession())
 }

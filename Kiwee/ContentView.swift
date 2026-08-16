@@ -1,12 +1,14 @@
 import SwiftUI
 
-/// The root app shell.
+/// Root routing shell.
 ///
-/// Routes to `RoleSelectView`, the kid tab bar, or the parent profile
-/// based on the current `AppSession` role.  Setting `session.role = nil`
-/// from anywhere in the hierarchy returns the user to role select.
+/// Reads `AppSession.role` and routes to:
+///   - `nil`     → `RoleSelectView`
+///   - `.kid`    → `KiweeGlassTabBar` tinted with the kid's avatar seed color
+///   - `.parent` → `ParentProfileView`
 struct ContentView: View {
     @Environment(AppSession.self) private var session
+    @Environment(User.self) private var user
     @State private var selectedTab: KiweeTab = .home
 
     var body: some View {
@@ -15,6 +17,8 @@ struct ContentView: View {
             RoleSelectView()
         case .kid:
             KiweeGlassTabBar(selectedTab: $selectedTab)
+                // Avatar-seeded accent: "KK" = pink → magenta family
+                .tint(user.avatarGradientColors.first ?? .pink)
         case .parent:
             ParentProfileView()
         }

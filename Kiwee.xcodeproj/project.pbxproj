@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03442E7852FD9755546D6718 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B8C63C0E6B1D547FDF3B57 /* TransactionDetailView.swift */; };
 		075CA5677ECA523F1CA6F7A6 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC9076361BF4597150DD9A /* DeleteAccountView.swift */; };
+		0B41049378EB941DD9850C88 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5313BA9E3F972DFE88FB5198 /* Chore.swift */; };
 		0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A4084A72883B08D8E86318 /* ProfileView.swift */; };
 		11D8483235961405C8EFA76B /* EarnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D44F586052816F6148F9C1 /* EarnView.swift */; };
 		18C6EA6E9EB4D6EA6E5CD502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E202B94F0B8B8ED551BDD35 /* Assets.xcassets */; };
+		211A8692550D4D9C31DB0D28 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76599D93FD9DCE9C8BB0EBF4 /* GoalDetailView.swift */; };
 		299F4657958A6152C81652C4 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D16B0914665869A4D016892 /* PrivacyPolicyView.swift */; };
 		2AA1651A145A56C81533A8B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A20BBA0A9B38F183F9A33 /* User.swift */; };
+		38F78E658E5E255BCE0E0E1E /* SavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6FD42E044ECD322B57F602 /* SavingsGoal.swift */; };
 		39C5340C39EC81F856CFC4A0 /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612A067CDA4B241D20671567 /* NotificationsSettingsView.swift */; };
 		39F6765DCD743191757D0F15 /* AutoReloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDADB89188E8E9E490D564DF /* AutoReloadView.swift */; };
 		40FD7D3F1E17D0EE553D8770 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319E632A29A62FF13BDF0C9E /* AppSession.swift */; };
+		46AF004B6BAA3F4C2A8A0A0E /* SuggestChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5891CAF4FCCF3A4E5B622A /* SuggestChoreView.swift */; };
 		4D1DAF2A182E7AE18C34E945 /* HelpCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9BD11495CF85CCE39DFC93 /* HelpCenterView.swift */; };
 		597477870001E18EF54053F2 /* RoleSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCAB379EF4B4C4461ED69F /* RoleSelectView.swift */; };
 		6105AE6014CD1F9C585792C9 /* ParentPrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721421A7C69EF5BF0178EB85 /* ParentPrivacyView.swift */; };
@@ -23,6 +28,7 @@
 		6734CB913199D1D3D4EEE2C2 /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E0D618A41EBEA9C7B20F5D /* SecurityView.swift */; };
 		6C351C62BA07192F5C147A8D /* ChildrenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8B13E72DFF1102947AEA8 /* ChildrenView.swift */; };
 		71AA109DFB0E4E361B9B9B87 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1099BBBE9C340530AB6A7 /* TermsOfServiceView.swift */; };
+		76425174FCEE3C75F20E84C5 /* KidSecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEE246CB8296949C330A92F /* KidSecurityView.swift */; };
 		9959B181E4BEE99C9BDCCFCE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB304E74DCA905D7DB94A8CA /* EditProfileView.swift */; };
 		9BB0A610C0243F25D7414910 /* ParentNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21187D3B1DB3F1E74F85DB2 /* ParentNotificationsView.swift */; };
 		9DE946DFD0C301952D17ACA8 /* AboutKiweeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C24A5E53144A657AAE0F8E /* AboutKiweeView.swift */; };
@@ -33,10 +39,12 @@
 		B37912CB213C990F029543F8 /* EditParentProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDED1FFF699530DEFD0C53 /* EditParentProfileView.swift */; };
 		B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087EA93A3790749AC0CFD89 /* KiweeApp.swift */; };
 		BEE58B75303AE33CBCBC2A14 /* TransactionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB9135FDB1640FE14EE46A /* TransactionHistoryView.swift */; };
+		BFBE6DBF620584A30ED3F66F /* ActivityTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47B3607994B8C1E2E39B0C /* ActivityTransaction.swift */; };
 		C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */; };
 		C4C012EFFFA8C3ECC7BAD127 /* ParentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C78880D07957B7443AA4DB /* ParentUser.swift */; };
 		C88D2B98C4AE6D514B87A3F5 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD9BC7113E7581B4E6E61 /* PrivacySettingsView.swift */; };
 		D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07481386C7B381E4737E8F /* ActivityView.swift */; };
+		DBA8497FB5EF0C9C30D1BF30 /* KidFamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFC30DD67B80DD447786CFA /* KidFamilyView.swift */; };
 		E2999A7293C8F260AA8BD3AA /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B50329AF45CA957462BECF5 /* FamilyView.swift */; };
 		ED8057AD7D75CB8257069172 /* PaymentMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C397C19EBF11D16AFEB7D8 /* PaymentMethodsView.swift */; };
 		F12A301A9E5E60F8C69725E2 /* SendFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858953BE84979FDDA009286D /* SendFeedbackView.swift */; };
@@ -57,15 +65,19 @@
 		31DCAB379EF4B4C4461ED69F /* RoleSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectView.swift; sourceTree = "<group>"; };
 		36C397C19EBF11D16AFEB7D8 /* PaymentMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsView.swift; sourceTree = "<group>"; };
 		43420AFF9AD85DCFB3BC9ECB /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
+		5313BA9E3F972DFE88FB5198 /* Chore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
 		5678E09466774C937B2D6499 /* CoParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoParentView.swift; sourceTree = "<group>"; };
 		5925E8890C74025F33B98D08 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		612A067CDA4B241D20671567 /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
 		64FEEEE209997119BB8FC88C /* KiweeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeTab.swift; sourceTree = "<group>"; };
+		65B8C63C0E6B1D547FDF3B57 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		6B9BD11495CF85CCE39DFC93 /* HelpCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterView.swift; sourceTree = "<group>"; };
 		6F07481386C7B381E4737E8F /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		721421A7C69EF5BF0178EB85 /* ParentPrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPrivacyView.swift; sourceTree = "<group>"; };
 		75C24A5E53144A657AAE0F8E /* AboutKiweeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKiweeView.swift; sourceTree = "<group>"; };
+		76599D93FD9DCE9C8BB0EBF4 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		7CA8B13E72DFF1102947AEA8 /* ChildrenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenView.swift; sourceTree = "<group>"; };
+		7E5891CAF4FCCF3A4E5B622A /* SuggestChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestChoreView.swift; sourceTree = "<group>"; };
 		8087EA93A3790749AC0CFD89 /* KiweeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeApp.swift; sourceTree = "<group>"; };
 		816A20BBA0A9B38F183F9A33 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		82C78880D07957B7443AA4DB /* ParentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentUser.swift; sourceTree = "<group>"; };
@@ -76,12 +88,16 @@
 		A1ED1A02D1E8BEC38749FEFD /* KiweeGlassTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiweeGlassTabBar.swift; sourceTree = "<group>"; };
 		A86628276B91492C682097E0 /* Kiwee.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kiwee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB304E74DCA905D7DB94A8CA /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		AB6FD42E044ECD322B57F602 /* SavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoal.swift; sourceTree = "<group>"; };
 		AF2EA35145479D910A75A456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB47B3607994B8C1E2E39B0C /* ActivityTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTransaction.swift; sourceTree = "<group>"; };
 		BDADB89188E8E9E490D564DF /* AutoReloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoReloadView.swift; sourceTree = "<group>"; };
 		C8D44F586052816F6148F9C1 /* EarnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnView.swift; sourceTree = "<group>"; };
 		F21187D3B1DB3F1E74F85DB2 /* ParentNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentNotificationsView.swift; sourceTree = "<group>"; };
 		F7E0D618A41EBEA9C7B20F5D /* SecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		F9A4084A72883B08D8E86318 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FBFC30DD67B80DD447786CFA /* KidFamilyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidFamilyView.swift; sourceTree = "<group>"; };
+		FCEE246CB8296949C330A92F /* KidSecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidSecurityView.swift; sourceTree = "<group>"; };
 		FCFDED1FFF699530DEFD0C53 /* EditParentProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParentProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +132,8 @@
 				AB304E74DCA905D7DB94A8CA /* EditProfileView.swift */,
 				1B50329AF45CA957462BECF5 /* FamilyView.swift */,
 				6B9BD11495CF85CCE39DFC93 /* HelpCenterView.swift */,
+				FBFC30DD67B80DD447786CFA /* KidFamilyView.swift */,
+				FCEE246CB8296949C330A92F /* KidSecurityView.swift */,
 				612A067CDA4B241D20671567 /* NotificationsSettingsView.swift */,
 				276DD9BC7113E7581B4E6E61 /* PrivacySettingsView.swift */,
 				858953BE84979FDDA009286D /* SendFeedbackView.swift */,
@@ -182,9 +200,12 @@
 			children = (
 				6F07481386C7B381E4737E8F /* ActivityView.swift */,
 				C8D44F586052816F6148F9C1 /* EarnView.swift */,
+				76599D93FD9DCE9C8BB0EBF4 /* GoalDetailView.swift */,
 				5925E8890C74025F33B98D08 /* HomeView.swift */,
 				F9A4084A72883B08D8E86318 /* ProfileView.swift */,
 				183BA2D8450E54767692F7A0 /* SaveView.swift */,
+				7E5891CAF4FCCF3A4E5B622A /* SuggestChoreView.swift */,
+				65B8C63C0E6B1D547FDF3B57 /* TransactionDetailView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -192,9 +213,12 @@
 		E1A7266AC037CE52F44D0C35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BB47B3607994B8C1E2E39B0C /* ActivityTransaction.swift */,
 				319E632A29A62FF13BDF0C9E /* AppSession.swift */,
+				5313BA9E3F972DFE88FB5198 /* Chore.swift */,
 				64FEEEE209997119BB8FC88C /* KiweeTab.swift */,
 				82C78880D07957B7443AA4DB /* ParentUser.swift */,
+				AB6FD42E044ECD322B57F602 /* SavingsGoal.swift */,
 				816A20BBA0A9B38F183F9A33 /* User.swift */,
 			);
 			path = Models;
@@ -301,11 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DE946DFD0C301952D17ACA8 /* AboutKiweeView.swift in Sources */,
+				BFBE6DBF620584A30ED3F66F /* ActivityTransaction.swift in Sources */,
 				D61AD57B0B7FC4F7902BF420 /* ActivityView.swift in Sources */,
 				40FD7D3F1E17D0EE553D8770 /* AppSession.swift in Sources */,
 				F44775D721FA7AFFFAB05828 /* AppearanceSettingsView.swift in Sources */,
 				39F6765DCD743191757D0F15 /* AutoReloadView.swift in Sources */,
 				6C351C62BA07192F5C147A8D /* ChildrenView.swift in Sources */,
+				0B41049378EB941DD9850C88 /* Chore.swift in Sources */,
 				AF5A1EF5162A647366BEA0C3 /* CoParentView.swift in Sources */,
 				662687618635FB1AFC149D73 /* ContentView.swift in Sources */,
 				075CA5677ECA523F1CA6F7A6 /* DeleteAccountView.swift in Sources */,
@@ -313,8 +339,11 @@
 				B37912CB213C990F029543F8 /* EditParentProfileView.swift in Sources */,
 				9959B181E4BEE99C9BDCCFCE /* EditProfileView.swift in Sources */,
 				E2999A7293C8F260AA8BD3AA /* FamilyView.swift in Sources */,
+				211A8692550D4D9C31DB0D28 /* GoalDetailView.swift in Sources */,
 				4D1DAF2A182E7AE18C34E945 /* HelpCenterView.swift in Sources */,
 				A6E3A5F7F24FDF0869719582 /* HomeView.swift in Sources */,
+				DBA8497FB5EF0C9C30D1BF30 /* KidFamilyView.swift in Sources */,
+				76425174FCEE3C75F20E84C5 /* KidSecurityView.swift in Sources */,
 				B97CF9D847DBA010598B3857 /* KiweeApp.swift in Sources */,
 				C2B6711BB0DFDC7EBBCC2F78 /* KiweeGlassTabBar.swift in Sources */,
 				F2ABBAB3F6257E29C413E67D /* KiweeTab.swift in Sources */,
@@ -330,9 +359,12 @@
 				0DD0267C535D6928AEB5724F /* ProfileView.swift in Sources */,
 				597477870001E18EF54053F2 /* RoleSelectView.swift in Sources */,
 				AF20167B7DD50B04B5619541 /* SaveView.swift in Sources */,
+				38F78E658E5E255BCE0E0E1E /* SavingsGoal.swift in Sources */,
 				6734CB913199D1D3D4EEE2C2 /* SecurityView.swift in Sources */,
 				F12A301A9E5E60F8C69725E2 /* SendFeedbackView.swift in Sources */,
+				46AF004B6BAA3F4C2A8A0A0E /* SuggestChoreView.swift in Sources */,
 				71AA109DFB0E4E361B9B9B87 /* TermsOfServiceView.swift in Sources */,
+				03442E7852FD9755546D6718 /* TransactionDetailView.swift in Sources */,
 				BEE58B75303AE33CBCBC2A14 /* TransactionHistoryView.swift in Sources */,
 				2AA1651A145A56C81533A8B7 /* User.swift in Sources */,
 			);
